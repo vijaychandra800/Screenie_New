@@ -1,0 +1,65 @@
+{
+  "project_info": {
+    "project_number": "166805854730",
+    "firebase_url": "https://screenie-8044a.firebaseio.com",
+    "project_id": "screenie-8044a",
+    "storage_bucket": "screenie-8044a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:166805854730:android:4ae298d572743dbd",
+        "android_client_info": {
+          "package_name": "com.app.screenie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "166805854730-4dpduosd64n3cfjjc4f94500t47rhtsa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.screenie",
+            "certificate_hash": "7b9280e69809ae21209a348c75d35db5bb65404d"
+          }
+        },
+        {
+          "client_id": "166805854730-t1qm33j7k508rprmc6crfh897tun9o7b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.screenie",
+            "certificate_hash": "4faa3a3132b0c04534b2ff4b2462be286cae74ad"
+          }
+        },
+        {
+          "client_id": "166805854730-tp14fekaol7ji6q9cjmc8rmlbgv2jvou.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.screenie",
+            "certificate_hash": "1abe3a4bb8c8f361acf39d99e4e5ab89c3a23e88"
+          }
+        },
+        {
+          "client_id": "166805854730-da9i5j8hl41q11qib9ikp5duubrusn4d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPO6TD4iWoo9uhZSUfyBNxqFVWy4yddd8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "166805854730-da9i5j8hl41q11qib9ikp5duubrusn4d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-5739291122483122~2055037339"
+    }
+  ],
+  "configuration_version": "1"
+}
