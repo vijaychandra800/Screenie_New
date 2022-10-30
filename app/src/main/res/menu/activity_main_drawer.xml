@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@mipmap/home"
+            android:title="@string/home" />
+
+<!--        <item-->
+<!--            android:id="@+id/nav_latest"-->
+<!--            android:icon="@mipmap/latest"-->
+<!--            android:title="@string/latest" />-->
+
+<!--        <item-->
+<!--            android:id="@+id/nav_popular"-->
+<!--            android:icon="@mipmap/popular"-->
+<!--            android:title="@string/popular" />-->
+
+<!--        <item-->
+<!--            android:id="@+id/nav_rated"-->
+<!--            android:icon="@mipmap/rated"-->
+<!--            android:title="@string/rated" />-->
+
+<!--        <item-->
+<!--            android:id="@+id/nav_cat"-->
+<!--            android:icon="@mipmap/cat"-->
+<!--            android:title="@string/categories" />-->
+
+        <item
+            android:id="@+id/nav_gif"
+            android:icon="@mipmap/gif"
+            android:title="@string/gifs" />
+
+        <item
+            android:id="@+id/nav_fav"
+            android:icon="@mipmap/fav"
+            android:title="@string/favourite" />
+
+    </group>
+
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@mipmap/profile"
+        android:title="@string/profile" />
+
+    <item
+        android:id="@+id/nav_setting"
+        android:icon="@mipmap/setting"
+        android:title="@string/action_settings" />
+
+    <item
+        android:id="@+id/nav_login"
+        android:icon="@mipmap/login"
+        android:title="@string/login" />
+
+</menu>

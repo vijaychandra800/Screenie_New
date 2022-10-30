@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ScreenieNew.iml" filepath="$PROJECT_DIR$/.idea/modules/ScreenieNew.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ScreenieNew.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ScreenieNew.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/checkbox/ScreenieNew.checkbox.iml" filepath="$PROJECT_DIR$/.idea/modules/checkbox/ScreenieNew.checkbox.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/frescozoom/ScreenieNew.frescozoom.iml" filepath="$PROJECT_DIR$/.idea/modules/frescozoom/ScreenieNew.frescozoom.iml" />
+    </modules>
+  </component>
+</project>
