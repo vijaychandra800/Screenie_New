@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.vpapps.hdwallpaper"
+    package="app.hdwallpaper"
     android:installLocation="auto">
 
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -13,7 +13,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name="com.vpapps.hdwallpaper.MyApplication"
+        android:name="app.hdwallpaper.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/app_icon"
         android:roundIcon="@mipmap/app_icon_round"
@@ -24,7 +24,7 @@
         android:usesCleartextTraffic="true"
         android:networkSecurityConfig="@xml/network_security_config" >
 
-        <activity android:name=".SplashActivity"
+        <activity android:name="screenie.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:exported="true">
@@ -35,55 +35,55 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="screenie.MainActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustNothing"/>
-        <activity android:name=".AboutActivity"
+        <activity android:name="screenie.AboutActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".WallpaperByCatActivity"
+            android:name="screenie.WallpaperByCatActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".WallPaperDetailsActivity"
+            android:name="screenie.WallPaperDetailsActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".GIFsDetailsActivity"
+            android:name="screenie.GIFsDetailsActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".SearchWallActivity"
+            android:name="screenie.SearchWallActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".SearchGIFActivity"
+            android:name="screenie.SearchGIFActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".SettingActivity"
+            android:name="screenie.SettingActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".SetWallpaperActivity"
+            android:name="screenie.SetWallpaperActivity"
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name=".LoginActivity"
+            android:name="screenie.LoginActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"/>
 
         <activity
-            android:name=".RegisterActivity"
+            android:name="screenie.RegisterActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"/>
 
         <activity
-            android:name=".ForgotPasswordActivity"
+            android:name="screenie.ForgotPasswordActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"/>
 
         <activity
-            android:name=".ProfileActivity"
+            android:name="screenie.ProfileActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"/>
 
         <activity
-            android:name=".ProfileEditActivity"
+            android:name="screenie.ProfileEditActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"/>
 
@@ -104,10 +104,10 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
 
         <meta-data android:name="com.onesignal.NotificationServiceExtension"
-            android:value="com.vpapps.utils.OnesignalNotificationHelper" />
+            android:value="app.utils.OnesignalNotificationHelper" />
 
         <service android:label="GIF Wallpaper"
-            android:name=".SetGIFAsWallpaperService"
+            android:name="screenie.SetGIFAsWallpaperService"
             android:permission="android.permission.BIND_WALLPAPER"
             android:showOnLockScreen="true"
             android:exported="true">
