@@ -2,8 +2,7 @@ package com.app.asyncTask;
 
 import android.os.AsyncTask;
 
-import com.app.interfaces.SuccessListener;
-import com.app.items.ItemUser;
+import com.app.interfaces.ProfileListener;
 import com.app.utils.Constant;
 import com.app.utils.JSONParser;
 

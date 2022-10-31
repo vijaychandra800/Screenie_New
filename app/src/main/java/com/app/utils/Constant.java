@@ -146,8 +146,8 @@ public class Constant implements Serializable {
 
     public static Boolean isUpdate = false, isLogged = false, isBannerAd = true, isInterAd = true, isNativeAd = false, isGIFEnabled = true,
             isPortrait = true, isLandscape = true, isSquare = true, showUpdateDialog = true, appUpdateCancel = false;
-    public static String ad_publisher_id = "", ad_banner_id = "", ad_inter_id = "", ad_native_id = "",
-            appVersion="1", appUpdateMsg = "", appUpdateURL = "";
+    public static String bannerAdType = "admob", interstitialAdType = "admob", nativeAdType = "admob", ad_publisher_id = "", ad_banner_id = "", ad_inter_id = "", ad_native_id = "",
+            appVersion="1", appUpdateMsg = "", appUpdateURL = "", startapp_id = "";
 
     public static int adInterstitialShow = 5;
     public static int adCount = 0;

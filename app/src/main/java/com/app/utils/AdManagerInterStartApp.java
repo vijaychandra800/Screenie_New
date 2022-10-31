@@ -2,6 +2,7 @@ package com.app.utils;
 
 import android.content.Context;
 
+/*
 import com.startapp.sdk.adsbase.StartAppAd;
 
 public class AdManagerInterStartApp {
@@ -24,4 +25,4 @@ public class AdManagerInterStartApp {
     public static void setAd(StartAppAd startAppAdInter) {
         startAppAd = startAppAdInter;
     }
-}
+}*/

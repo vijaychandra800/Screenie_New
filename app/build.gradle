@@ -23,9 +23,9 @@ android {
         versionName "8.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        manifestPlaceholders = [onesignal_app_id: "6db1a228-56c8-47b0-a804-33af3938c9a9",
+        //manifestPlaceholders = [onesignal_app_id: "6db1a228-56c8-47b0-a804-33af3938c9a9",
                                 // Project number pulled from dashboard, local value is ignored.
-                                onesignal_google_project_number: "REMOTE"]
+                               // onesignal_google_project_number: "REMOTE"]
 
         multiDexEnabled true
         signingConfig signingConfigs.release

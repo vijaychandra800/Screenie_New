@@ -19,8 +19,12 @@ import com.app.utils.DBHelper;
 import com.app.utils.Methods;
 import com.app.utils.SharedPref;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.multidex.MultiDex;
+
+import org.jetbrains.annotations.NotNull;
+
 import io.github.inflationx.calligraphy3.CalligraphyConfig;
 import io.github.inflationx.calligraphy3.CalligraphyInterceptor;
 import io.github.inflationx.viewpump.ViewPump;

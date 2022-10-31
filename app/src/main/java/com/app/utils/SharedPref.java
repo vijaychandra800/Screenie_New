@@ -193,7 +193,7 @@ public class SharedPref {
         Constant.ad_inter_id = encryptData.decrypt(sharedPreferences.getString(TAG_AD_ID_INTER, ""));
         Constant.ad_native_id = encryptData.decrypt(sharedPreferences.getString(TAG_AD_ID_NATIVE, ""));
 
-        Constant.startapp_id = encryptData.decrypt(sharedPreferences.getString(TAG_STARTAPP_ID, ""));
+
 
         Constant.adInterstitialShow = sharedPreferences.getInt(TAG_AD_INTER_POS, 5);
         Constant.adInterstitialShow = sharedPreferences.getInt(TAG_AD_NATIVE_POS, 9);

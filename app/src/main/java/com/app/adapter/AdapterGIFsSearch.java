@@ -17,11 +17,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.applovin.mediation.MaxAd;
-import com.applovin.mediation.MaxError;
-import com.applovin.mediation.nativeAds.MaxNativeAdListener;
-import com.applovin.mediation.nativeAds.MaxNativeAdLoader;
-import com.applovin.mediation.nativeAds.MaxNativeAdView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.ads.consent.ConsentInformation;
 import com.google.ads.consent.ConsentStatus;
@@ -35,11 +30,7 @@ import com.google.android.gms.ads.nativead.NativeAd;
 import com.google.android.gms.ads.nativead.NativeAdView;
 import com.like.LikeButton;
 import com.like.OnLikeListener;
-import com.startapp.sdk.ads.nativead.NativeAdDetails;
-import com.startapp.sdk.ads.nativead.NativeAdPreferences;
-import com.startapp.sdk.ads.nativead.StartAppNativeAd;
-import com.startapp.sdk.adsbase.Ad;
-import com.startapp.sdk.adsbase.adlisteners.AdEventListener;
+
 import com.app.asyncTask.LoadFav;
 import com.app.screenie.R;
 import com.app.interfaces.RecyclerViewClickListener;
@@ -74,7 +65,6 @@ public class AdapterGIFsSearch extends RecyclerView.Adapter {
 
     Boolean isAdLoaded = false;
     List<NativeAd> mNativeAdsAdmob = new ArrayList<>();
-    List<NativeAdDetails> nativeAdsStartApp = new ArrayList<>();
 
     public AdapterGIFsSearch(Context context, ArrayList<ItemGIF> arrayList, RecyclerViewClickListener recyclerViewClickListener) {
         this.arrayList = arrayList;
@@ -198,39 +188,7 @@ public class AdapterGIFsSearch extends RecyclerView.Adapter {
                                 ((ADViewHolder) holder).rl_native_ad.setVisibility(View.VISIBLE);
                             }
                             break;
-                        case Constant.AD_TYPE_STARTAPP:
-                            int i = new Random().nextInt(nativeAdsStartApp.size() - 1);
 
-                            RelativeLayout nativeAdView = (RelativeLayout) ((Activity) context).getLayoutInflater().inflate(R.layout.layout_native_ad_startapp, null);
-                            populateStartAppNativeAdView(nativeAdsStartApp.get(i), nativeAdView);
-
-                            ((ADViewHolder) holder).rl_native_ad.removeAllViews();
-                            ((ADViewHolder) holder).rl_native_ad.addView(nativeAdView);
-                            ((ADViewHolder) holder).rl_native_ad.setVisibility(View.VISIBLE);
-                            break;
-                        case Constant.AD_TYPE_APPLOVIN:
-                            MaxNativeAdLoader nativeAdLoader = new MaxNativeAdLoader(Constant.ad_native_id, context);
-                            nativeAdLoader.setNativeAdListener(new MaxNativeAdListener() {
-                                @Override
-                                public void onNativeAdLoaded(final MaxNativeAdView nativeAdView, final MaxAd ad) {
-                                    nativeAdView.setPadding(0, 0, 0, 10);
-                                    nativeAdView.setBackgroundColor(Color.WHITE);
-                                    ((ADViewHolder) holder).rl_native_ad.removeAllViews();
-                                    ((ADViewHolder) holder).rl_native_ad.addView(nativeAdView);
-                                    ((ADViewHolder) holder).rl_native_ad.setVisibility(View.VISIBLE);
-                                }
-
-                                @Override
-                                public void onNativeAdLoadFailed(final String adUnitId, final MaxError error) {
-                                }
-
-                                @Override
-                                public void onNativeAdClicked(final MaxAd ad) {
-                                }
-                            });
-
-                            nativeAdLoader.loadAd();
-                            break;
                     }
                 }
             }
@@ -369,27 +327,7 @@ public class AdapterGIFsSearch extends RecyclerView.Adapter {
 
                     adLoader.loadAds(adRequest, 5);
                     break;
-                case Constant.AD_TYPE_STARTAPP:
-                    StartAppNativeAd nativeAd = new StartAppNativeAd(context);
 
-                    nativeAd.loadAd(new NativeAdPreferences()
-                            .setAdsNumber(3)
-                            .setAutoBitmapDownload(true)
-                            .setPrimaryImageSize(2), new AdEventListener() {
-                        @Override
-                        public void onReceiveAd(Ad ad) {
-                            nativeAdsStartApp.addAll(nativeAd.getNativeAds());
-                            isAdLoaded = true;
-                        }
-
-                        @Override
-                        public void onFailedToReceiveAd(Ad ad) {
-                        }
-                    });
-                    break;
-                case Constant.AD_TYPE_APPLOVIN:
-                    isAdLoaded = true;
-                    break;
             }
         }
     }
@@ -470,17 +408,7 @@ public class AdapterGIFsSearch extends RecyclerView.Adapter {
         adView.setNativeAd(nativeAd);
     }
 
-    private void populateStartAppNativeAdView(NativeAdDetails nativeAdDetails, RelativeLayout nativeAdView) {
-        ImageView icon = nativeAdView.findViewById(R.id.icon);
-        TextView title = nativeAdView.findViewById(R.id.title);
-        TextView description = nativeAdView.findViewById(R.id.description);
-        Button button = nativeAdView.findViewById(R.id.button);
 
-        icon.setImageBitmap(nativeAdDetails.getImageBitmap());
-        title.setText(nativeAdDetails.getTitle());
-        description.setText(nativeAdDetails.getDescription());
-        button.setText(nativeAdDetails.isApp() ? "Install" : "Open");
-    }
 
     public void destroyNativeAds() {
         try {

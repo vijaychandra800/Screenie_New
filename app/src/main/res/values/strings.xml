@@ -10,6 +10,8 @@
 
     <string name="admob_app_id">ca-app-pub-5739291122483122~2055037339</string>
 
+    <string name="onesignal_app_id">6db1a228-56c8-47b0-a804-33af3938c9a9</string>
+
     <string name="privacy_policy_url">https://screenie.atozhacks.in/privacy_policy.html</string>
 
     <string name="play_more_apps">https://play.google.com/store/apps/developer?id=Vijay+Chandra</string>

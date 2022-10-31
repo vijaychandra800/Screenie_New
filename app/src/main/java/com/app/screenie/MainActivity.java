@@ -165,14 +165,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                                             AdManagerInterAdmob adManagerInterAdmob = new AdManagerInterAdmob(getApplicationContext());
                                             adManagerInterAdmob.createAd();
                                             break;
-                                        case Constant.AD_TYPE_STARTAPP:
-                                            AdManagerInterStartApp adManagerInterStartApp = new AdManagerInterStartApp(getApplicationContext());
-                                            adManagerInterStartApp.createAd();
-                                            break;
-                                        case Constant.AD_TYPE_APPLOVIN:
-                                            AdManagerInterApplovin adManagerInterApplovin = new AdManagerInterApplovin(MainActivity.this);
-                                            adManagerInterApplovin.createAd();
-                                            break;
+
                                     }
                                 }
                             }

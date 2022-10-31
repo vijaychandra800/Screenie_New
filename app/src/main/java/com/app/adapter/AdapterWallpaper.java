@@ -69,7 +69,6 @@ public class AdapterWallpaper extends RecyclerView.Adapter {
     Boolean isAdLoaded = false;
     AdLoader adLoader = null;
     List<NativeAd> mNativeAdsAdmob = new ArrayList<>();
-    List<NativeAdDetails> nativeAdsStartApp = new ArrayList<>();
 
     public AdapterWallpaper(Context context, String type, ArrayList<ItemWallpaper> arrayList, RecyclerViewClickListener recyclerViewClickListener) {
         this.arrayList = arrayList;
@@ -88,7 +87,7 @@ public class AdapterWallpaper extends RecyclerView.Adapter {
         LikeButton likeButton;
         TextView textView_cat;
         //View vieww;
-        SimpleDraweeView my_image_view;
+        RoundedImageView my_image_view;
 
         private MyViewHolder(View view) {
             super(view);
@@ -206,39 +205,7 @@ public class AdapterWallpaper extends RecyclerView.Adapter {
                                 ((ADViewHolder) holder).rl_native_ad.setVisibility(View.VISIBLE);
                             }
                             break;
-                        case Constant.AD_TYPE_STARTAPP:
-                            int i = new Random().nextInt(nativeAdsStartApp.size() - 1);
 
-                            RelativeLayout nativeAdView = (RelativeLayout) ((Activity) context).getLayoutInflater().inflate(R.layout.layout_native_ad_startapp, null);
-                            populateStartAppNativeAdView(nativeAdsStartApp.get(i), nativeAdView);
-
-                            ((ADViewHolder) holder).rl_native_ad.removeAllViews();
-                            ((ADViewHolder) holder).rl_native_ad.addView(nativeAdView);
-                            ((ADViewHolder) holder).rl_native_ad.setVisibility(View.VISIBLE);
-                            break;
-                        case Constant.AD_TYPE_APPLOVIN:
-                            MaxNativeAdLoader nativeAdLoader = new MaxNativeAdLoader(Constant.ad_native_id, context);
-                            nativeAdLoader.setNativeAdListener(new MaxNativeAdListener() {
-                                @Override
-                                public void onNativeAdLoaded(final MaxNativeAdView nativeAdView, final MaxAd ad) {
-                                    nativeAdView.setPadding(0, 0, 0, 10);
-                                    nativeAdView.setBackgroundColor(Color.WHITE);
-                                    ((ADViewHolder) holder).rl_native_ad.removeAllViews();
-                                    ((ADViewHolder) holder).rl_native_ad.addView(nativeAdView);
-                                    ((ADViewHolder) holder).rl_native_ad.setVisibility(View.VISIBLE);
-                                }
-
-                                @Override
-                                public void onNativeAdLoadFailed(final String adUnitId, final MaxError error) {
-                                }
-
-                                @Override
-                                public void onNativeAdClicked(final MaxAd ad) {
-                                }
-                            });
-
-                            nativeAdLoader.loadAd();
-                            break;
                     }
                 }
             }
@@ -358,27 +325,7 @@ public class AdapterWallpaper extends RecyclerView.Adapter {
 
                     adLoader.loadAds(adRequest, 5);
                     break;
-                case Constant.AD_TYPE_STARTAPP:
-                    StartAppNativeAd nativeAd = new StartAppNativeAd(context);
 
-                    nativeAd.loadAd(new NativeAdPreferences()
-                            .setAdsNumber(3)
-                            .setAutoBitmapDownload(true)
-                            .setPrimaryImageSize(2), new AdEventListener() {
-                        @Override
-                        public void onReceiveAd(Ad ad) {
-                            nativeAdsStartApp.addAll(nativeAd.getNativeAds());
-                            isAdLoaded = true;
-                        }
-
-                        @Override
-                        public void onFailedToReceiveAd(Ad ad) {
-                        }
-                    });
-                    break;
-                case Constant.AD_TYPE_APPLOVIN:
-                    isAdLoaded = true;
-                    break;
             }
         }
     }

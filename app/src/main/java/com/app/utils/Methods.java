@@ -1,6 +1,9 @@
 package com.app.utils;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.app.WallpaperManager;
 import android.content.ComponentName;
 import android.content.ContentValues;
 import android.content.Context;
@@ -227,20 +230,6 @@ public class Methods {
             });
         }
 
-        if(isStartAppAds()) {
-            if(!Constant.startapp_id.equals("")) {
-                StartAppSDK.init(context, Constant.startapp_id, false);
-                StartAppAd.disableSplash();
-            }
-        }
-
-        if(isApplovinAds()) {
-            if(!AppLovinSdk.getInstance(context).isInitialized()) {
-                AppLovinSdk.initializeSdk(context);
-                AppLovinSdk.getInstance(context).setMediationProvider("max");
-                AppLovinSdk.getInstance(context).getSettings().setTestDeviceAdvertisingIds(Arrays.asList("bb6822d9-18de-41b0-994e-41d4245a4d63", "749d75a2-1ef2-4ff9-88a5-c50374843ac6"));
-            }
-        }
     }
 
     @SuppressLint("MissingPermission")
@@ -282,20 +271,7 @@ public class Methods {
                         showPersonalizedAds(linearLayout);
                     }
                     break;
-                case Constant.AD_TYPE_STARTAPP:
-                    Banner startAppBanner = new Banner(context);
-                    startAppBanner.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-                    linearLayout.addView(startAppBanner);
-                    startAppBanner.loadAd();
-                    break;
-                case Constant.AD_TYPE_APPLOVIN:
-                    MaxAdView adView = new MaxAdView(Constant.ad_banner_id, context);
-                    int width = ViewGroup.LayoutParams.MATCH_PARENT;
-                    int heightPx = context.getResources().getDimensionPixelSize(R.dimen.banner_height);
-                    adView.setLayoutParams(new FrameLayout.LayoutParams(width, heightPx));
-                    linearLayout.addView(adView);
-                    adView.loadAd();
-                    break;
+
             }
         }
     }
@@ -330,87 +306,6 @@ public class Methods {
                         } else {
                             AdManagerInterAdmob.setAd(null);
                             adManagerInterAdmob.createAd();
-                            interAdListener.onClick(pos, type);
-                        }
-                        break;
-                    case Constant.AD_TYPE_STARTAPP:
-                        final AdManagerInterStartApp adManagerInterStartApp = new AdManagerInterStartApp(context);
-                        if (adManagerInterStartApp.getAd() != null && adManagerInterStartApp.getAd().isReady()) {
-                            adManagerInterStartApp.getAd().showAd(new AdDisplayListener() {
-                                @Override
-                                public void adHidden(Ad ad) {
-                                    AdManagerInterStartApp.setAd(null);
-                                    adManagerInterStartApp.createAd();
-                                    interAdListener.onClick(pos, type);
-                                }
-
-                                @Override
-                                public void adDisplayed(Ad ad) {
-
-                                }
-
-                                @Override
-                                public void adClicked(Ad ad) {
-
-                                }
-
-                                @Override
-                                public void adNotDisplayed(Ad ad) {
-                                    AdManagerInterStartApp.setAd(null);
-                                    adManagerInterStartApp.createAd();
-                                    interAdListener.onClick(pos, type);
-                                }
-                            });
-                        } else {
-                            AdManagerInterStartApp.setAd(null);
-                            adManagerInterStartApp.createAd();
-                            interAdListener.onClick(pos, type);
-                        }
-                        break;
-                    case Constant.AD_TYPE_APPLOVIN:
-                        final AdManagerInterApplovin adManagerInterApplovin = new AdManagerInterApplovin(context);
-                        if (adManagerInterApplovin.getAd() != null && adManagerInterApplovin.getAd().isReady()) {
-                            adManagerInterApplovin.getAd().setListener(new MaxAdListener() {
-                                @Override
-                                public void onAdLoaded(MaxAd ad) {
-
-                                }
-
-                                @Override
-                                public void onAdDisplayed(MaxAd ad) {
-
-                                }
-
-                                @Override
-                                public void onAdHidden(MaxAd ad) {
-                                    AdManagerInterApplovin.setAd(null);
-                                    adManagerInterApplovin.createAd();
-                                    interAdListener.onClick(pos, type);
-                                }
-
-                                @Override
-                                public void onAdClicked(MaxAd ad) {
-
-                                }
-
-                                @Override
-                                public void onAdLoadFailed(String adUnitId, MaxError error) {
-                                    AdManagerInterApplovin.setAd(null);
-                                    adManagerInterApplovin.createAd();
-                                    interAdListener.onClick(pos, type);
-                                }
-
-                                @Override
-                                public void onAdDisplayFailed(MaxAd ad, MaxError error) {
-                                    AdManagerInterApplovin.setAd(null);
-                                    adManagerInterApplovin.createAd();
-                                    interAdListener.onClick(pos, type);
-                                }
-                            });
-                            adManagerInterApplovin.getAd().showAd();
-                        } else {
-                            AdManagerInterStartApp.setAd(null);
-                            adManagerInterApplovin.createAd();
                             interAdListener.onClick(pos, type);
                         }
                         break;

@@ -1,5 +1,6 @@
 package com.app.utils;
 
+/*
 import android.app.Activity;
 import android.content.Context;
 
@@ -25,4 +26,4 @@ public class AdManagerInterApplovin {
     public static void setAd(MaxInterstitialAd appLovinInter) {
         interstitialAd = appLovinInter;
     }
-}
+}*/

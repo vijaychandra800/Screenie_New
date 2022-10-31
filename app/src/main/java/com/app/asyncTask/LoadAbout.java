@@ -67,7 +67,7 @@ public class LoadAbout extends AsyncTask<String, String, String> {
                         Constant.adInterstitialShow = Integer.parseInt(c.getString("interstital_ad_click"));
                         Constant.adNativeShow = Integer.parseInt(c.getString("native_position"));
 
-                        Constant.startapp_id = c.getString("startapp_app_id");
+                        //Constant.startapp_id = c.getString("startapp_app_id");
 
                         Constant.ad_publisher_id = c.getString("publisher_id");
 
