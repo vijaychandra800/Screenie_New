@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <app.utils.StatusBarView
+    <com.app.utils.StatusBarView
         android:id="@+id/statusBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,7 +17,7 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/ll_ad_search"
         android:layout_below="@+id/statusBar"
-        tools:context="app.hdwallpaper.WallpaperActivity">
+        tools:context="com.app.screenie.WallpaperActivity">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appbar"
