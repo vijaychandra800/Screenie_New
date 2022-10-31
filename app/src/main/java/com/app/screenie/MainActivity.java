@@ -5,6 +5,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,6 +14,11 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
+
+//import com.google.android.ads.mediationtestsuite.MediationTestSuite;
 import com.google.android.material.navigation.NavigationView;
 import com.app.asyncTask.LoadAbout;
 import com.app.fragments.FragmentDashboard;
@@ -21,8 +28,7 @@ import com.app.interfaces.AboutListener;
 import com.app.interfaces.AdConsentListener;
 import com.app.utils.AdConsent;
 import com.app.utils.AdManagerInterAdmob;
-import com.app.utils.AdManagerInterApplovin;
-import com.app.utils.AdManagerInterStartApp;
+
 import com.app.utils.Constant;
 import com.app.utils.DBHelper;
 import com.app.utils.Methods;
@@ -33,6 +39,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -115,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         adConsent = new AdConsent(this, new AdConsentListener() {
             @Override
             public void onConsentUpdate() {
-                methods.showBannerAd(ll_ad);
+                //methods.showBannerAd(ll_ad);
             }
         });
 
@@ -296,6 +303,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_login:
                 methods.clickLogin();
                 break;
+            case R.id.nav_youtube:
+                Intent yt = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.yt_channel_link)));
+                startActivity(yt);
+                break;
+            case R.id.nav_telegram:
+                Intent tel = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.tel_channel_link)));
+                startActivity(tel);
+                break;
+            case R.id.nav_insta:
+                Intent insta = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.insta_link)));
+                startActivity(insta);
+                break;
+            case R.id.nav_mail:
+                Intent intent=new Intent(Intent.ACTION_SEND);
+                String[] recipients={"vijaychandra800@gmail.com"};
+                intent.putExtra(Intent.EXTRA_EMAIL, recipients);
+                intent.putExtra(Intent.EXTRA_SUBJECT,"Screenie - Setup Submission/Feedback");
+                intent.putExtra(Intent.EXTRA_TEXT,"Submit your Setup's here by uploading Wallpaper,Setup Screenshot and Launcher Backup's and Details of the Setup. Please Upload KWGT Widget Backup only if it's a Custom Made Widget by You and Don't forget to give your Social Profile link for giving Credits(Twitter/Instagram");
+                intent.setType("text/html");
+                intent.setPackage("com.google.android.gm");
+                startActivity(Intent.createChooser(intent, "Send mail"));
+                break;
+
         }
     }
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/bg">
 
-    <app.utils.StatusBarView
+    <com.app.utils.StatusBarView
         android:id="@+id/statusBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

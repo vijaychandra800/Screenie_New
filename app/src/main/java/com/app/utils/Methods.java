@@ -1,9 +1,6 @@
 package com.app.utils;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.ProgressDialog;
-import android.app.WallpaperManager;
 import android.content.ComponentName;
 import android.content.ContentValues;
 import android.content.Context;
@@ -37,11 +34,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.applovin.mediation.MaxAd;
-import com.applovin.mediation.MaxAdListener;
-import com.applovin.mediation.MaxError;
-import com.applovin.mediation.ads.MaxAdView;
-import com.applovin.sdk.AppLovinSdk;
 import com.eventbus.EventAction;
 import com.eventbus.GlobalBus;
 import com.facebook.login.LoginManager;
@@ -61,16 +53,16 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.startapp.sdk.ads.banner.Banner;
-import com.startapp.sdk.adsbase.Ad;
-import com.startapp.sdk.adsbase.StartAppAd;
-import com.startapp.sdk.adsbase.StartAppSDK;
-import com.startapp.sdk.adsbase.adlisteners.AdDisplayListener;
+import com.app.screenie.BuildConfig;
 import com.app.screenie.LoginActivity;
 import com.app.screenie.R;
 import com.app.screenie.SetGIFAsWallpaperService;
 import com.app.screenie.SetWallpaperActivity;
 import com.app.interfaces.InterAdListener;
+import com.app.items.ItemUser;
+import com.yakivmospan.scytale.Crypto;
+import com.yakivmospan.scytale.Options;
+import com.yakivmospan.scytale.Store;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
@@ -87,6 +79,8 @@ import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.Arrays;
 
+
+import javax.crypto.SecretKey;
 import javax.net.ssl.HttpsURLConnection;
 
 import androidx.annotation.NonNull;
@@ -611,9 +605,9 @@ public class Methods {
                     filePath = context.getExternalCacheDir().getAbsoluteFile().getAbsolutePath() + File.separator + name;
                 } else {
                     if(postType.equals("wallpaper")) {
-                        filePath = Environment.getExternalStorageDirectory() + File.separator + Environment.DIRECTORY_PICTURES + File.separator + context.getString(R.string.app_name) + File.separator + context.getString(R.string.wallpapers) + File.separator + name;
+                        filePath = Environment.getExternalStorageDirectory() + File.separator + Environment.DIRECTORY_PICTURES + File.separator + context.getString(R.string.app_name) + File.separator + name;
                     } else {
-                        filePath = Environment.getExternalStorageDirectory() + File.separator + Environment.DIRECTORY_PICTURES + File.separator + context.getString(R.string.app_name) + File.separator + context.getString(R.string.gifs) + File.separator + name;
+                        filePath = Environment.getExternalStorageDirectory() + File.separator + Environment.DIRECTORY_PICTURES + File.separator + context.getString(R.string.app_name) + File.separator + name;
                     }
                 }
                 file = new File(filePath);
@@ -728,7 +722,7 @@ public class Methods {
             ContentValues values = new ContentValues();
             if (postType.equals("wallpaper")) {
                 values.put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg");
-                values.put(MediaStore.Images.Media.RELATIVE_PATH, Environment.DIRECTORY_PICTURES + "/" + context.getString(R.string.app_name) + "/" + context.getString(R.string.wallpapers));
+                values.put(MediaStore.Images.Media.RELATIVE_PATH, Environment.DIRECTORY_PICTURES + "/" + context.getString(R.string.app_name));
             } else {
                 values.put(MediaStore.Images.Media.MIME_TYPE, "image/gif");
                 values.put(MediaStore.Images.Media.RELATIVE_PATH, Environment.DIRECTORY_PICTURES + "/" + context.getString(R.string.app_name) + "/" + context.getString(R.string.gifs));

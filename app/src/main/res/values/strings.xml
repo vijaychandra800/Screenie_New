@@ -1,22 +1,22 @@
 <resources>
-    <string name="app_name">HD Wallpapers</string>
+    <string name="app_name">Screenie</string>
+    <string name="title_activity_main">MainActivity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="onesignal_app_id">2345asdsa-22w4-23ee-43rf-23ed32ed23d</string>
+    <string name="facebook_app_id">1350604741954261</string>
+    <string name="fb_login_protocol_scheme">fb1350604741954261</string>
 
-    <string name="facebook_app_id">234234234234324</string>
-    <string name="fb_login_protocol_scheme">fb234234234234324</string>
+    <string name="admob_app_id">ca-app-pub-5739291122483122~2055037339</string>
 
-    <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="privacy_policy_url">https://screenie.atozhacks.in/privacy_policy.html</string>
 
-    <string name="applovin_id">FBZJ_9VAb231d3sd2d328JBmTNKtNTMX3eh9DhVk_M0k-qedqwd3dd13sdf1d2s3</string>
+    <string name="play_more_apps">https://play.google.com/store/apps/developer?id=Vijay+Chandra</string>
+    <string name="yt_channel_link">https://www.youtube.com/channel/UCrc46l2-CkNX2DTTwHfZfYQ</string>
+    <string name="tel_channel_link">https://t.me/screenieapp/</string>
+    <string name="insta_link">https://instagram.com/screenie_official/</string>
 
-    <string name="privacy_policy_url">https://www.your.com/privacyurl</string>
-
-    <!-- play store application link i.e more apps -->
-    <string name="play_more_apps">https://play.google.com/store/apps/developer?id=YOUR+PLAY+URL</string>
 
     <!-- true if want to use RTL else false -->
     <string name="isRTL">false</string>
@@ -39,7 +39,7 @@
     <string name="no_data_found">No Data Found</string>
     <string name="mostviewed">Most Viewed</string>
     <string name="square_wallpaper">Square Wallpaper</string>
-    <string name="amazing_wall">Amazing Wallpapers in your way</string>
+    <string name="amazing_wall">Amazing Home Screen Setups in your Way!</string>
     <string name="title_activity_wallpaper">Wallpaper</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="wallpapers">Wallpapers</string>
@@ -85,7 +85,7 @@
     <string name="downloading_gif">Downloading GIF</string>
     <string name="enter_rating">Please enter rating</string>
     <string name="download_path">Download Path</string>
-    <string name="get_more_wall">Get more amazing wallpapers, download now</string>
+    <string name="get_more_wall">Get more Amazing Home Screen Setups, Wallpapers from Screenie App! Download Now For Free</string>
     <string name="get_more_gif">Get more amazing GIFs, download now</string>
     <string name="rate_this_wall">Rate this Wallpaper</string>
     <string name="rate_this_gif">Rate this GIF</string>
@@ -104,9 +104,9 @@
     <string name="save">Save</string>
     <string name="resolution">Resolution</string>
     <string name="size">Size</string>
-    <string name="rate_wall">How likely do you to recommend this app to your friends?</string>
+    <string name="rate_wall">How likely do you recommend Screenie to your Friends?</string>
     <string name="exit">Exit</string>
-    <string name="sure_exit">Are you sure you want to exit app?</string>
+    <string name="sure_exit">Are you sure, Do you want to Exit the App?</string>
     <string name="cancel">Cancel</string>
     <string name="select">Select</string>
     <string name="clear_cache">Clear Cache</string>
@@ -117,14 +117,14 @@
     <string name="home_lock_screen">Home Screen and Lock Screen</string>
     <string name="err_set_wall">Error when setting wallpaper</string>
 
-    <string name="welcomeback">Welcome</string>
-    <string name="signin_to_continue">Sign In to continue</string>
+    <string name="welcomeback">Welcome To Screenie</string>
+    <string name="signin_to_continue">Please Sign In to Continue</string>
     <string name="remember_me">Remember Me</string>
     <string name="registering">Registering..</string>
     <string name="forgot_password_message">Enter your valid email address below and we will send you email with instructions on how to change your password</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
-    <string name="skip">Skip</string>
+    <string name="skip">Skip Login</string>
     <string name="forgot_pass">Forgot Your Password?</string>
     <string name="dnt_have_acc">Don\'t have an account?</string>
     <string name="signup">Sign Up</string>
@@ -162,9 +162,9 @@
     <string name="error_connect_net_tryagain">Please connect to internet and try again</string>
     <string name="try_again">Try Again</string>
     <string name="recent_wallpaper">Recent Wallpapers</string>
-    <string name="latest_wallpaper">Latest Wallpapers</string>
-    <string name="popular_wallpaper">Popular Wallpaper</string>
-    <string name="report_wall_">Report Wallpaper:-</string>
+    <string name="latest_wallpaper">Latest Setups</string>
+    <string name="popular_wallpaper">Popular Setups</string>
+    <string name="report_wall_">Report Setup:-</string>
     <string name="report_message">Enter your report here</string>
     <string name="enter_report">Enter your report message</string>
     <string name="report_gif_">Report GIF:-</string>

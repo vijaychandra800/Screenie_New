@@ -6,8 +6,10 @@ import com.app.screenie.BuildConfig;
 import com.app.items.ItemAbout;
 import com.app.items.ItemColors;
 import com.app.items.ItemGIF;
+import com.app.items.ItemUser;
 import com.app.items.ItemWallpaper;
 
+import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -65,6 +67,17 @@ public class Constant implements Serializable {
     public static final String TAG_WALLPAPER_COLORS = "wallpaper_colors";
     public static final String TAG_RESOLUTION = "resolution";
     public static final String TAG_SIZE = "size";
+
+    public static final String TAG_WALL_URL = "wall_url";
+    public static final String TAG_APP1_URL = "app1_url";
+    public static final String TAG_APP2_NAME = "app2_name";
+    public static final String TAG_APP2_URL = "app2_url";
+    public static final String TAG_APP3_NAME = "app3_name";
+    public static final String TAG_APP3_URL = "app3_url";
+    public static final String TAG_APP4_NAME = "app4_name";
+    public static final String TAG_APP4_URL = "app4_url";
+    public static final String TAG_APP5_NAME = "app5_name";
+    public static final String TAG_APP5_URL = "app5_url";
 
     public static final String TAG_PORTRAIT = "Portrait";
     public static final String TAG_LANDSCAPE = "Landscape";
@@ -129,11 +142,12 @@ public class Constant implements Serializable {
     public static Boolean isFav = false;
     public static String packageName = "", search_item = "", gifPath = "";
     public static Uri uri_set;
+    //public static File file;
 
-    public static Boolean isUpdate = false, isBannerAd = true, isInterAd = true, isNativeAd = false, isGIFEnabled = true,
+    public static Boolean isUpdate = false, isLogged = false, isBannerAd = true, isInterAd = true, isNativeAd = false, isGIFEnabled = true,
             isPortrait = true, isLandscape = true, isSquare = true, showUpdateDialog = true, appUpdateCancel = false;
-    public static String bannerAdType = "admob", interstitialAdType = "admob", nativeAdType = "admob", ad_publisher_id = "", ad_banner_id = "",
-            ad_inter_id = "", ad_native_id = "", startapp_id = "", appVersion="1", appUpdateMsg = "", appUpdateURL = "";
+    public static String ad_publisher_id = "", ad_banner_id = "", ad_inter_id = "", ad_native_id = "",
+            appVersion="1", appUpdateMsg = "", appUpdateURL = "";
 
     public static int adInterstitialShow = 5;
     public static int adCount = 0;

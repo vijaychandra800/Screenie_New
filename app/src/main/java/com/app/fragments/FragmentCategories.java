@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.OvershootInterpolator;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.app.adapter.AdapterCategories;
@@ -42,7 +43,8 @@ public class FragmentCategories extends Fragment {
     private RecyclerView recyclerView;
     private AdapterCategories adapterCategories;
     private ArrayList<ItemCat> arrayList;
-    private CircularProgressBar progressBar;
+    //private CircularProgressBar progressBar;
+    private ProgressBar progressBar;
     private TextView textView_empty;
     private SearchView searchView;
     private SharedPref sharedPref;
@@ -83,7 +85,7 @@ public class FragmentCategories extends Fragment {
         progressBar = rootView.findViewById(R.id.pb_cat);
         textView_empty = rootView.findViewById(R.id.tv_empty_cat);
         recyclerView = rootView.findViewById(R.id.rv_cat);
-        GridLayoutManager grid = new GridLayoutManager(getActivity(), 3);
+        GridLayoutManager grid = new GridLayoutManager(getActivity(), 2);
         recyclerView.setLayoutManager(grid);
 
         recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), new RecyclerItemClickListener.OnItemClickListener() {

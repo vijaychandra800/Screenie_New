@@ -510,7 +510,6 @@ public class GIFsDetailsActivity extends AppCompatActivity {
 
             dbHelper.updateViewGIF(Constant.arrayListGIF.get(p).getId(), Constant.arrayListGIF.get(p).getTotalViews(), Constant.arrayListGIF.get(p).getTotalDownload(), Constant.arrayListGIF.get(p).getResolution(), Constant.arrayListGIF.get(p).getSize());
         }
-
     }
 
     private void openRateDialog() {

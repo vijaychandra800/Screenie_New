@@ -68,11 +68,22 @@ public class LoadHome extends AsyncTask<String, String, Boolean> {
                 String totalrate = objJson.getString(Constant.TAG_WALL_TOTAL_RATE);
                 String averagerate = objJson.getString(Constant.TAG_WALL_AVG_RATE);
                 String tags = objJson.getString(Constant.TAG_WALL_TAGS);
+                String wallUrl = objJson.getString(Constant.TAG_WALL_URL);
+                String app1Url = objJson.getString(Constant.TAG_APP1_URL);
+                String app2Name = objJson.getString(Constant.TAG_APP2_NAME);
+                String app2Url = objJson.getString(Constant.TAG_APP2_URL);
+                String app3Name = objJson.getString(Constant.TAG_APP3_NAME);
+                String app3Url = objJson.getString(Constant.TAG_APP3_URL);
+                String app4Name = objJson.getString(Constant.TAG_APP4_NAME);
+                String app4Url = objJson.getString(Constant.TAG_APP4_URL);
+                String app5Name = objJson.getString(Constant.TAG_APP5_NAME);
+                String app5Url = objJson.getString(Constant.TAG_APP5_URL);
+
                 String type = objJson.getString(Constant.TAG_WALL_TYPE);
                 String colors = objJson.getString(Constant.TAG_WALL_COLORS);
                 boolean isFav = objJson.getBoolean(Constant.TAG_IS_FAV);
 
-                ItemWallpaper itemWallpaper = new ItemWallpaper(id, cid, cat_name, img, img_thumb, colors, totalviews, totalrate, averagerate, "", tags, type, isFav);
+                ItemWallpaper itemWallpaper = new ItemWallpaper(id, cid, cat_name, img, img_thumb, colors, totalviews, totalrate, averagerate, "", tags, wallUrl, app1Url, app2Name, app2Url, app3Name, app3Url, app4Name,app4Url,app5Name,app5Url,type, isFav);
                 arrayListFeatured.add(itemWallpaper);
                 dbHelper.addWallpaper(itemWallpaper, DBHelper.TABLE_WALL_BY_FEATURED);
             }
@@ -91,10 +102,21 @@ public class LoadHome extends AsyncTask<String, String, Boolean> {
                 String averagerate = objJson.getString(Constant.TAG_WALL_AVG_RATE);
                 String tags = objJson.getString(Constant.TAG_WALL_TAGS);
                 String type = objJson.getString(Constant.TAG_WALL_TYPE);
+                String wallUrl = objJson.getString(Constant.TAG_WALL_URL);
+                String app1Url = objJson.getString(Constant.TAG_APP1_URL);
+                String app2Name = objJson.getString(Constant.TAG_APP2_NAME);
+                String app2Url = objJson.getString(Constant.TAG_APP2_URL);
+                String app3Name = objJson.getString(Constant.TAG_APP3_NAME);
+                String app3Url = objJson.getString(Constant.TAG_APP3_URL);
+                String app4Name = objJson.getString(Constant.TAG_APP4_NAME);
+                String app4Url = objJson.getString(Constant.TAG_APP4_URL);
+                String app5Name = objJson.getString(Constant.TAG_APP5_NAME);
+                String app5Url = objJson.getString(Constant.TAG_APP5_URL);
+
                 String colors = objJson.getString(Constant.TAG_WALL_COLORS);
                 boolean isFav = objJson.getBoolean(Constant.TAG_IS_FAV);
 
-                ItemWallpaper itemWallpaper = new ItemWallpaper(id, cid, cat_name, img, img_thumb, colors, totalviews, totalrate, averagerate, "", tags, type, isFav);
+                ItemWallpaper itemWallpaper = new ItemWallpaper(id, cid, cat_name, img, img_thumb, colors, totalviews, totalrate, averagerate, "", tags, wallUrl, app1Url, app2Name, app2Url, app3Name, app3Url,app4Name,app4Url,app5Name,app5Url,type, isFav);
                 dbHelper.addWallpaper(itemWallpaper, DBHelper.TABLE_WALL_BY_LATEST);
                 arrayListLatest.add(itemWallpaper);
             }
@@ -113,10 +135,21 @@ public class LoadHome extends AsyncTask<String, String, Boolean> {
                 String averagerate = objJson.getString(Constant.TAG_WALL_AVG_RATE);
                 String tags = objJson.getString(Constant.TAG_WALL_TAGS);
                 String type = objJson.getString(Constant.TAG_WALL_TYPE);
+                String wallUrl = objJson.getString(Constant.TAG_WALL_URL);
+                String app1Url = objJson.getString(Constant.TAG_APP1_URL);
+                String app2Name = objJson.getString(Constant.TAG_APP2_NAME);
+                String app2Url = objJson.getString(Constant.TAG_APP2_URL);
+                String app3Name = objJson.getString(Constant.TAG_APP3_NAME);
+                String app3Url = objJson.getString(Constant.TAG_APP3_URL);
+                String app4Name = objJson.getString(Constant.TAG_APP4_NAME);
+                String app4Url = objJson.getString(Constant.TAG_APP4_URL);
+                String app5Name = objJson.getString(Constant.TAG_APP5_NAME);
+                String app5Url = objJson.getString(Constant.TAG_APP5_URL);
+
                 String colors = objJson.getString(Constant.TAG_WALL_COLORS);
                 boolean isFav = objJson.getBoolean(Constant.TAG_IS_FAV);
 
-                ItemWallpaper itemWallpaper = new ItemWallpaper(id, cid, cat_name, img, img_thumb, colors, totalviews, totalrate, averagerate, "", tags, type, isFav);
+                ItemWallpaper itemWallpaper = new ItemWallpaper(id, cid, cat_name, img, img_thumb, colors, totalviews, totalrate, averagerate, "", tags,wallUrl, app1Url, app2Name, app2Url, app3Name, app3Url, app4Name,app4Url,app5Name,app5Url,type, isFav);
                 dbHelper.addWallpaper(itemWallpaper, DBHelper.TABLE_WALL_BY_LATEST);
                 arrayListPopular.add(itemWallpaper);
             }
@@ -135,10 +168,21 @@ public class LoadHome extends AsyncTask<String, String, Boolean> {
                 String averagerate = objJson.getString(Constant.TAG_WALL_AVG_RATE);
                 String tags = objJson.getString(Constant.TAG_WALL_TAGS);
                 String type = objJson.getString(Constant.TAG_WALL_TYPE);
+                String wallUrl = objJson.getString(Constant.TAG_WALL_URL);
+                String app1Url = objJson.getString(Constant.TAG_APP1_URL);
+                String app2Name = objJson.getString(Constant.TAG_APP2_NAME);
+                String app2Url = objJson.getString(Constant.TAG_APP2_URL);
+                String app3Name = objJson.getString(Constant.TAG_APP3_NAME);
+                String app3Url = objJson.getString(Constant.TAG_APP3_URL);
+                String app4Name = objJson.getString(Constant.TAG_APP4_NAME);
+                String app4Url = objJson.getString(Constant.TAG_APP4_URL);
+                String app5Name = objJson.getString(Constant.TAG_APP5_NAME);
+                String app5Url = objJson.getString(Constant.TAG_APP5_URL);
+
                 String colors = objJson.getString(Constant.TAG_WALL_COLORS);
                 boolean isFav = objJson.getBoolean(Constant.TAG_IS_FAV);
 
-                ItemWallpaper itemWallpaper = new ItemWallpaper(id, cid, cat_name, img, img_thumb, colors, totalviews, totalrate, averagerate, "", tags, type, isFav);
+                ItemWallpaper itemWallpaper = new ItemWallpaper(id, cid, cat_name, img, img_thumb, colors, totalviews, totalrate, averagerate, "", tags, type, wallUrl, app1Url, app2Name, app2Url, app3Name, app3Url,app4Name,app4Url,app5Name,app5Url,isFav);
                 arrayListRecent.add(itemWallpaper);
             }
 

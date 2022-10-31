@@ -2,25 +2,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rootlayout"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="3dp"
-    android:layout_marginEnd="3dp"
-    android:layout_marginRight="3dp"
+    android:layout_width="match_parent"
+    android:layout_height="270dp"
+    android:gravity="center"
+    android:layout_marginBottom="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginRight="10dp"
     android:background="@color/bg"
-    android:gravity="center">
+    >
 
-    <com.facebook.drawee.view.SimpleDraweeView
+    <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/my_image_view"
-        android:layout_width="160dp"
-        android:layout_height="220dp"
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
         fresco:actualImageScaleType="centerCrop"
+        fresco:placeholderImage="@drawable/placeholder_wall"
         fresco:placeholderImageScaleType="centerCrop"
-        fresco:placeholderImage="@drawable/placeholder_wall" />
+        app:riv_corner_radius="10dp"
+        />
 
     <View
         android:id="@+id/view_wall"
-        android:layout_width="160dp"
+        android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_alignParentBottom="true"
         android:background="@drawable/bg_gradient_black"
@@ -28,14 +31,15 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:gravity="center">
 
         <com.like.LikeButton
             android:id="@+id/button_wall_fav"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             app:anim_scale_factor="2"
@@ -46,7 +50,7 @@
             app:icon_size="25dp"
             app:is_enabled="true"
             app:like_drawable="@mipmap/fav_hover"
-            app:unlike_drawable="@mipmap/fav"/>
+            app:unlike_drawable="@mipmap/fav" />
 
         <TextView
             android:id="@+id/tv_wall_cat"

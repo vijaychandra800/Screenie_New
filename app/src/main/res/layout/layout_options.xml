@@ -25,7 +25,7 @@
                 android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:src="@drawable/arrow_up1"
-                android:layout_marginBottom="-20dp"
+                android:layout_marginBottom="-28dp"
                 android:contentDescription="@string/image" />
 
             <ImageView
@@ -33,6 +33,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="-10dp"
                 android:src="@drawable/arrow_up1"
                 android:contentDescription="@string/image" />
 
@@ -47,15 +48,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/bg_option"
-                android:layout_marginTop="30dp">
+                android:layout_marginTop="50dp"
+                >
 
                 <TextView
                     android:id="@+id/tv_details_cat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:textColor="@color/text_black"
-                    android:textSize="16sp" />
+                    android:paddingLeft="12dp"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                   />
 
                 <View
                     android:layout_width="match_parent"
@@ -83,14 +86,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/views"
-                            android:textColor="@color/text_duration" />
+                            android:textFontWeight="1"
+                            android:textColor="@color/white" />
 
                         <TextView
                             android:id="@+id/tv_wall_details_views"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="35"
-                            android:textColor="@color/text_desc"
+                            android:textColor="@color/white"
                             android:textSize="12sp" />
 
                     </LinearLayout>
@@ -112,17 +116,20 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/downloads"
-                            android:textColor="@color/text_duration" />
+                            android:textFontWeight="1"
+                            android:textColor="@color/white" />
 
                         <TextView
                             android:id="@+id/tv_wall_details_downloads"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="35"
-                            android:textColor="@color/text_desc"
+                            android:textColor="@color/white"
                             android:textSize="12sp" />
 
                     </LinearLayout>
+
+
 
                     <View
                         android:layout_width="1dp"
@@ -142,7 +149,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/ratings"
-                            android:textColor="@color/text_duration" />
+                            android:textFontWeight="1"
+                            android:textColor="@color/white" />
 
                         <RatingBar
                             android:id="@+id/rating_wall_details"
@@ -197,8 +205,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="5dp"
+                                android:textFontWeight="1"
                                 android:text="@string/set_wallpaper"
-                                android:textColor="@color/text_desc"
+                                android:textColor="@color/white"
                                 android:textSize="12sp" />
 
                         </LinearLayout>
@@ -233,7 +242,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="5dp"
                                 android:text="@string/rate"
-                                android:textColor="@color/text_desc"
+                                android:textFontWeight="1"
+                                android:textColor="@color/white"
                                 android:textSize="12sp" />
 
                         </LinearLayout>
@@ -244,6 +254,42 @@
                             android:background="@drawable/line_vertical" />
 
                         <LinearLayout
+                            android:id="@+id/download_hd"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="?attr/selectableItemBackground"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingBottom="2dp"
+                            android:paddingTop="2dp">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="45dp"
+                                android:paddingEnd="5dp"
+                                android:paddingStart="5dp"
+                                android:paddingTop="5dp"
+                                android:src="@mipmap/download" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="5dp"
+                                android:text="Download"
+                                android:textFontWeight="1"
+                                android:textColor="@color/white"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/line_vertical" />
+
+                        <LinearLayout
+                            android:visibility="gone"
                             android:id="@+id/ll_download"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -267,7 +313,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="5dp"
                                 android:text="@string/save"
-                                android:textColor="@color/text_desc"
+                                android:textFontWeight="1"
+                                android:textColor="@color/white"
                                 android:textSize="12sp" />
 
                         </LinearLayout>
@@ -294,15 +341,17 @@
                                 android:paddingEnd="5dp"
                                 android:paddingStart="5dp"
                                 android:paddingTop="5dp"
-                                android:src="@mipmap/share_round_orange" />
+                                android:src="@mipmap/share" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="5dp"
                                 android:text="@string/share"
-                                android:textColor="@color/text_desc"
-                                android:textSize="12sp" />
+                                android:textFontWeight="1"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                />
 
                         </LinearLayout>
 
@@ -325,7 +374,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/tags"
-                            android:textColor="@color/text_black"
+                            android:textFontWeight="1"
+                            android:textColor="@color/white"
                             android:layout_marginEnd="8dp"
                             android:layout_marginRight="8dp" />
 
@@ -344,11 +394,13 @@
                         android:background="@color/line_op_vertical" />
 
                     <LinearLayout
+                        android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
                         <LinearLayout
+                            android:visibility="gone"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -360,13 +412,13 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/resolution"
-                                android:textColor="@color/text_duration" />
+                                android:textColor="@color/white" />
 
                             <TextView
                                 android:id="@+id/tv_details_resolution"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textColor="@color/text_desc"
+                                android:textColor="@color/white"
                                 android:textSize="12sp" />
 
                         </LinearLayout>
@@ -377,6 +429,7 @@
                             android:background="@drawable/line_vertical" />
 
                         <LinearLayout
+                            android:visibility="gone"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -388,16 +441,116 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/size"
-                                android:textColor="@color/text_duration" />
+                                android:textColor="@color/text" />
 
                             <TextView
                                 android:id="@+id/tv_details_size"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textColor="@color/text_desc"
+                                android:textColor="@color/text_light"
                                 android:textSize="12sp" />
 
                         </LinearLayout>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/line_op_vertical" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <HorizontalScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:fillViewport="true">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Download "
+                                    android:textSize="14dp"
+                                    android:textColor="@color/white"
+                                    />
+
+                                <Button
+                                    android:id="@+id/app1"
+                                    android:layout_width="100dp"
+                                    android:layout_height="30dp"
+                                    android:background="@drawable/btn_apps"
+                                    android:paddingTop="7dp"
+                                    android:paddingBottom="7dp"
+                                    android:paddingStart="20dp"
+                                    android:paddingEnd="20dp"
+                                    android:layout_marginRight="8dp"
+                                    android:text="Icons"
+
+                                    android:textColor="@color/white"/>
+
+                                <Button
+                                    android:id="@+id/app2"
+                                    android:layout_width="100dp"
+                                    android:layout_height="30dp"
+                                    android:background="@drawable/btn_apps"
+                                    android:paddingTop="7dp"
+                                    android:paddingBottom="7dp"
+                                    android:paddingStart="20dp"
+                                    android:paddingEnd="20dp"
+                                    android:layout_marginRight="8dp"
+                                    android:text="Icons"
+                                    android:visibility="gone"
+                                    android:textColor="@color/white"/>
+
+                                <Button
+                                    android:id="@+id/app3"
+                                    android:layout_width="100dp"
+                                    android:layout_height="30dp"
+                                    android:background="@drawable/btn_apps"
+                                    android:paddingTop="7dp"
+                                    android:paddingBottom="7dp"
+                                    android:paddingStart="20dp"
+                                    android:paddingEnd="20dp"
+                                    android:layout_marginRight="8dp"
+                                    android:text="Icon Pack"
+                                    android:visibility="gone"
+                                    android:textColor="@color/white"/>
+                                <Button
+                                    android:id="@+id/app4"
+                                    android:layout_width="100dp"
+                                    android:layout_height="30dp"
+                                    android:background="@drawable/btn_apps"
+                                    android:paddingTop="7dp"
+                                    android:paddingBottom="7dp"
+                                    android:paddingStart="20dp"
+                                    android:paddingEnd="20dp"
+                                    android:layout_marginRight="8dp"
+                                    android:text="Icons"
+                                    android:visibility="gone"
+                                    android:textColor="@color/white"/>
+                                <Button
+                                    android:id="@+id/app5"
+                                    android:layout_width="100dp"
+                                    android:layout_height="30dp"
+                                    android:background="@drawable/btn_apps"
+                                    android:paddingTop="7dp"
+                                    android:paddingBottom="7dp"
+                                    android:paddingStart="20dp"
+                                    android:paddingEnd="20dp"
+                                    android:layout_marginRight="8dp"
+                                    android:text="Icons"
+                                    android:visibility="gone"
+                                    android:textColor="@color/white"/>
+
+                            </LinearLayout>
+                        </HorizontalScrollView>
 
                     </LinearLayout>
 
@@ -414,6 +567,7 @@
                     android:id="@+id/fav_report"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
+                    android:layout_marginTop="32dp"
                     android:layout_marginEnd="5dp"
                     android:layout_marginRight="5dp"
                     android:layout_toStartOf="@+id/button_wall_fav"
@@ -427,6 +581,7 @@
                     android:id="@+id/button_wall_fav"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
+                    android:layout_marginTop="32dp"
                     android:layout_marginEnd="15dp"
                     android:layout_marginRight="15dp"
                     android:layout_alignParentEnd="true"

@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -64,6 +65,7 @@ public class FragmentWallpapers extends Fragment {
     private String color_ids = "";
     private SharedPref sharedPref;
     private RelativeLayout rl_colors;
+    private int nativeAdPos = 12;
     Boolean isWallTypeChanged = true;
 
     static FragmentWallpapers newInstance(int position) {
@@ -83,7 +85,7 @@ public class FragmentWallpapers extends Fragment {
         button_colors_go = rootView.findViewById(R.id.button_colors_go);
         rv_colors = rootView.findViewById(R.id.rv_wall_colors);
 
-        grid = new GridLayoutManager(getActivity(), 3);
+        grid = new GridLayoutManager(getActivity(), 2);
 
         if (getArguments() != null) {
             pos = getArguments().getInt("pos");
@@ -298,7 +300,6 @@ public class FragmentWallpapers extends Fragment {
                                                         }
                                                     }
                                                 }
-
                                                 page = page + 1;
                                                 setAdapter();
                                             }
@@ -360,6 +361,7 @@ public class FragmentWallpapers extends Fragment {
             recyclerView.setVisibility(View.VISIBLE);
             textView_empty.setVisibility(View.GONE);
         }
+        progressBar.setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -378,11 +380,11 @@ public class FragmentWallpapers extends Fragment {
                 isOver = false;
             }
             wallType = sharedPref.getWallType();
-            if (wallType.equals(getString(R.string.landscape))) {
+           /* if (wallType.equals(getString(R.string.landscape))) {
                 grid.setSpanCount(2);
             } else {
-                grid.setSpanCount(3);
-            }
+                grid.setSpanCount(2);
+            }*/
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {

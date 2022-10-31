@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:background="@color/bg_option">
 
-    <app.utils.StatusBarView
+    <com.app.utils.StatusBarView
         android:id="@+id/statusBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

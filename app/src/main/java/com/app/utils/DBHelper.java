@@ -6,6 +6,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.app.items.ItemAbout;
 import com.app.items.ItemCat;
@@ -51,6 +52,18 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String TAG_TYPE = "type";
     private static final String TAG_RES = "res";
     private static final String TAG_SIZE = "size";
+    private static final String TAG_WALLURL = "wallUrl";
+    private static final String TAG_APP1URL = "app1Url";
+    private static final String TAG_APP2NAME = "app2Name";
+    private static final String TAG_APP2URL = "app2Url";
+    private static final String TAG_APP3NAME = "app3Name";
+    private static final String TAG_APP3URL = "app3Url";
+    private static final String TAG_APP4NAME = "app4Name";
+    private static final String TAG_APP4URL = "app4Url";
+    private static final String TAG_APP5NAME = "app5Name";
+    private static final String TAG_APP5URL = "app5Url";
+
+
     private static final String TAG_IMAGE = "image";
     private static final String TAG_COLORS = "colors";
 
@@ -283,6 +296,18 @@ public class DBHelper extends SQLiteOpenHelper {
                 String type = cursor.getString(cursor.getColumnIndex(TAG_TYPE));
                 String res = cursor.getString(cursor.getColumnIndex(TAG_RES));
                 String size = cursor.getString(cursor.getColumnIndex(TAG_SIZE));
+
+                String wallUrl = cursor.getString(cursor.getColumnIndex(TAG_WALLURL));
+                String app1Url = cursor.getString(cursor.getColumnIndex(TAG_APP1URL));
+                String app2Name = cursor.getString(cursor.getColumnIndex(TAG_APP2NAME));
+                String app2Url = cursor.getString(cursor.getColumnIndex(TAG_APP2URL));
+                String app3Name = cursor.getString(cursor.getColumnIndex(TAG_APP3NAME));
+                String app3Url = cursor.getString(cursor.getColumnIndex(TAG_APP3URL));
+                String app4Name = cursor.getString(cursor.getColumnIndex(TAG_APP4NAME));
+                String app4Url = cursor.getString(cursor.getColumnIndex(TAG_APP4URL));
+                String app5Name = cursor.getString(cursor.getColumnIndex(TAG_APP5NAME));
+                String app5Url = cursor.getString(cursor.getColumnIndex(TAG_APP5URL));
+
                 String colors = cursor.getString(cursor.getColumnIndex(TAG_COLORS)).replace(",", ",,");
 
                 List<String> colors_array_wall = new ArrayList<>(Arrays.asList(colors.split(",")));
@@ -295,7 +320,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     if (colors_array_wall.size() > 0) {
                         for (String aColors_array_selected : colors_array_selected) {
                             if (colors_array_wall.contains(aColors_array_selected)) {
-                                ItemWallpaper itemWallpaper = new ItemWallpaper(pid, cid, cname, img, img_thumb, colors, views, totalrate, averagerate, download, tags, type, false);
+                                ItemWallpaper itemWallpaper = new ItemWallpaper(pid, cid, cname, img, img_thumb, colors, views, totalrate, averagerate, download, tags, type, wallUrl, app1Url, app2Name, app2Url, app3Name, app3Url,app4Name,app4Url,app5Name,app5Url, false);
                                 itemWallpaper.setResolution(res);
                                 itemWallpaper.setSize(size);
                                 arrayList.add(itemWallpaper);
@@ -304,7 +329,7 @@ public class DBHelper extends SQLiteOpenHelper {
                         }
                     }
                 } else {
-                    ItemWallpaper itemWallpaper = new ItemWallpaper(pid, cid, cname, img, img_thumb, colors, views, totalrate, averagerate, download, tags, type, false);
+                    ItemWallpaper itemWallpaper = new ItemWallpaper(pid, cid, cname, img, img_thumb, colors, views, totalrate, averagerate, download, tags, type, wallUrl, app1Url, app2Name, app2Url, app3Name, app3Url,app4Name,app4Url,app5Name,app5Url,false);
                     itemWallpaper.setResolution(res);
                     itemWallpaper.setSize(size);
                     arrayList.add(itemWallpaper);
@@ -377,6 +402,18 @@ public class DBHelper extends SQLiteOpenHelper {
                 String type = cursor.getString(cursor.getColumnIndex(TAG_TYPE));
                 String res = cursor.getString(cursor.getColumnIndex(TAG_RES));
                 String size = cursor.getString(cursor.getColumnIndex(TAG_SIZE));
+
+                String wallUrl = cursor.getString(cursor.getColumnIndex(TAG_WALLURL));
+                String app1Url = cursor.getString(cursor.getColumnIndex(TAG_APP1URL));
+                String app2Name = cursor.getString(cursor.getColumnIndex(TAG_APP2NAME));
+                String app2Url = cursor.getString(cursor.getColumnIndex(TAG_APP2URL));
+                String app3Name = cursor.getString(cursor.getColumnIndex(TAG_APP3NAME));
+                String app3Url = cursor.getString(cursor.getColumnIndex(TAG_APP3URL));
+                String app4Name = cursor.getString(cursor.getColumnIndex(TAG_APP4NAME));
+                String app4Url = cursor.getString(cursor.getColumnIndex(TAG_APP4URL));
+                String app5Name = cursor.getString(cursor.getColumnIndex(TAG_APP5NAME));
+                String app5Url = cursor.getString(cursor.getColumnIndex(TAG_APP5URL));
+
                 String colors = cursor.getString(cursor.getColumnIndex(TAG_COLORS)).replace(",", ",,");
 
                 List<String> colors_array_wall = new ArrayList<>(Arrays.asList(colors.split(",")));
@@ -389,7 +426,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     if (colors_array_wall.size() > 0) {
                         for (String aColors_array_selected : colors_array_selected) {
                             if (colors_array_wall.contains(aColors_array_selected)) {
-                                ItemWallpaper itemWallpaper = new ItemWallpaper(pid, cid, cname, img, img_thumb, colors, views, totalrate, averagerate, download, tags, type, false);
+                                ItemWallpaper itemWallpaper = new ItemWallpaper(pid, cid, cname, img, img_thumb, colors, views, totalrate, averagerate, download, tags, type, wallUrl, app1Url, app2Name, app2Url, app3Name, app3Url,app4Name,app4Url,app5Name,app5Url, false);
                                 itemWallpaper.setResolution(res);
                                 itemWallpaper.setSize(size);
                                 arrayList.add(itemWallpaper);
@@ -398,7 +435,7 @@ public class DBHelper extends SQLiteOpenHelper {
                         }
                     }
                 } else {
-                    ItemWallpaper itemWallpaper = new ItemWallpaper(pid, cid, cname, img, img_thumb, colors, views, totalrate, averagerate, download, tags, type, false);
+                    ItemWallpaper itemWallpaper = new ItemWallpaper(pid, cid, cname, img, img_thumb, colors, views, totalrate, averagerate, download, tags, type, wallUrl, app1Url, app2Name, app2Url, app3Name, app3Url,app4Name,app4Url,app5Name,app5Url, false);
                     itemWallpaper.setResolution(res);
                     itemWallpaper.setSize(size);
                     arrayList.add(itemWallpaper);
@@ -439,6 +476,19 @@ public class DBHelper extends SQLiteOpenHelper {
                 String type = cursor.getString(cursor.getColumnIndex(TAG_TYPE));
                 String res = cursor.getString(cursor.getColumnIndex(TAG_RES));
                 String size = cursor.getString(cursor.getColumnIndex(TAG_SIZE));
+
+                String wallUrl = cursor.getString(cursor.getColumnIndex(TAG_WALLURL));
+                String app1Url = cursor.getString(cursor.getColumnIndex(TAG_APP1URL));
+                String app2Name = cursor.getString(cursor.getColumnIndex(TAG_APP2NAME));
+                String app2Url = cursor.getString(cursor.getColumnIndex(TAG_APP2URL));
+                String app3Name = cursor.getString(cursor.getColumnIndex(TAG_APP3NAME));
+                String app3Url = cursor.getString(cursor.getColumnIndex(TAG_APP3URL));
+                String app4Name = cursor.getString(cursor.getColumnIndex(TAG_APP4NAME));
+                String app4Url = cursor.getString(cursor.getColumnIndex(TAG_APP4URL));
+                String app5Name = cursor.getString(cursor.getColumnIndex(TAG_APP5NAME));
+                String app5Url = cursor.getString(cursor.getColumnIndex(TAG_APP5URL));
+
+
                 String colors = cursor.getString(cursor.getColumnIndex(TAG_COLORS)).replace(",", ",,");
 
                 List<String> colors_array_wall = new ArrayList<>(Arrays.asList(colors.split(",")));
@@ -451,7 +501,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     if (colors_array_wall.size() > 0) {
                         for (String aColors_array_selected : colors_array_selected) {
                             if (colors_array_wall.contains(aColors_array_selected)) {
-                                ItemWallpaper itemWallpaper = new ItemWallpaper(pid, cid, cname, img, img_thumb, colors, views, totalrate, averagerate, download, tags, type, false);
+                                ItemWallpaper itemWallpaper = new ItemWallpaper(pid, cid, cname, img, img_thumb, colors, views, totalrate, averagerate, download, tags, type, wallUrl, app1Url, app2Name, app2Url, app3Name, app3Url,app4Name,app4Url,app5Name,app5Url,  false);
                                 itemWallpaper.setResolution(res);
                                 itemWallpaper.setSize(size);
                                 arrayList.add(itemWallpaper);
@@ -460,7 +510,7 @@ public class DBHelper extends SQLiteOpenHelper {
                         }
                     }
                 } else {
-                    ItemWallpaper itemWallpaper = new ItemWallpaper(pid, cid, cname, img, img_thumb, colors, views, totalrate, averagerate, download, tags, type, false);
+                    ItemWallpaper itemWallpaper = new ItemWallpaper(pid, cid, cname, img, img_thumb, colors, views, totalrate, averagerate, download, tags, type, wallUrl, app1Url, app2Name, app2Url, app3Name, app3Url,app4Name,app4Url,app5Name,app5Url, false);
                     itemWallpaper.setResolution(res);
                     itemWallpaper.setSize(size);
                     arrayList.add(itemWallpaper);
@@ -635,6 +685,18 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(TAG_TOTAL_DWONLOAD, itemWallpaper.getTotalDownloads());
         contentValues.put(TAG_TAGS, itemWallpaper.getTags());
         contentValues.put(TAG_TYPE, itemWallpaper.getType());
+
+        contentValues.put(TAG_WALLURL, itemWallpaper.getWallUrl());
+        contentValues.put(TAG_APP1URL, itemWallpaper.getApp1Url());
+        contentValues.put(TAG_APP2NAME, itemWallpaper.getApp2Name());
+        contentValues.put(TAG_APP2URL, itemWallpaper.getApp2Url());
+        contentValues.put(TAG_APP3NAME, itemWallpaper.getApp3Name());
+        contentValues.put(TAG_APP3URL, itemWallpaper.getApp3Url());
+        contentValues.put(TAG_APP4NAME, itemWallpaper.getApp4Name());
+        contentValues.put(TAG_APP4URL, itemWallpaper.getApp4Url());
+        contentValues.put(TAG_APP5NAME, itemWallpaper.getApp5Name());
+        contentValues.put(TAG_APP5URL, itemWallpaper.getApp5Url());
+
         contentValues.put(TAG_RES, itemWallpaper.getResolution());
         contentValues.put(TAG_SIZE, itemWallpaper.getSize());
         contentValues.put(TAG_COLORS, itemWallpaper.getWallColors());
@@ -663,6 +725,18 @@ public class DBHelper extends SQLiteOpenHelper {
             contentValues.put(TAG_TOTAL_DWONLOAD, itemWallpaper.getTotalDownloads());
             contentValues.put(TAG_TAGS, itemWallpaper.getTags());
             contentValues.put(TAG_TYPE, itemWallpaper.getType());
+
+            contentValues.put(TAG_WALLURL, itemWallpaper.getWallUrl());
+            contentValues.put(TAG_APP1URL, itemWallpaper.getApp1Url());
+            contentValues.put(TAG_APP2NAME, itemWallpaper.getApp2Name());
+            contentValues.put(TAG_APP2URL, itemWallpaper.getApp2Url());
+            contentValues.put(TAG_APP3NAME, itemWallpaper.getApp3Name());
+            contentValues.put(TAG_APP3URL, itemWallpaper.getApp3Url());
+            contentValues.put(TAG_APP4NAME, itemWallpaper.getApp4Name());
+            contentValues.put(TAG_APP4URL, itemWallpaper.getApp4Url());
+            contentValues.put(TAG_APP5NAME, itemWallpaper.getApp5Name());
+            contentValues.put(TAG_APP5URL, itemWallpaper.getApp5Url());
+
             contentValues.put(TAG_RES, itemWallpaper.getResolution());
             contentValues.put(TAG_SIZE, itemWallpaper.getSize());
             contentValues.put(TAG_COLORS, itemWallpaper.getWallColors());
@@ -716,6 +790,18 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(TAG_AVG_RATE, itemWallpaper.getAverageRate());
         contentValues.put(TAG_TOTAL_DWONLOAD, itemWallpaper.getTotalDownloads());
         contentValues.put(TAG_TAGS, itemWallpaper.getTags());
+
+        contentValues.put(TAG_WALLURL, itemWallpaper.getWallUrl());
+        contentValues.put(TAG_APP1URL, itemWallpaper.getApp1Url());
+        contentValues.put(TAG_APP2NAME, itemWallpaper.getApp2Name());
+        contentValues.put(TAG_APP2URL, itemWallpaper.getApp2Url());
+        contentValues.put(TAG_APP3NAME, itemWallpaper.getApp3Name());
+        contentValues.put(TAG_APP3URL, itemWallpaper.getApp3Url());
+        contentValues.put(TAG_APP4NAME, itemWallpaper.getApp4Name());
+        contentValues.put(TAG_APP4URL, itemWallpaper.getApp4Url());
+        contentValues.put(TAG_APP5NAME, itemWallpaper.getApp5Name());
+        contentValues.put(TAG_APP5URL, itemWallpaper.getApp5Url());
+
         contentValues.put(TAG_TYPE, itemWallpaper.getType());
         contentValues.put(TAG_RES, itemWallpaper.getResolution());
         contentValues.put(TAG_SIZE, itemWallpaper.getSize());
@@ -921,11 +1007,31 @@ public class DBHelper extends SQLiteOpenHelper {
                     db.execSQL("ALTER TABLE latest ADD 'avg_rate' TEXT");
                     db.execSQL("ALTER TABLE latest ADD 'total_download' TEXT");
                     db.execSQL("ALTER TABLE latest ADD 'tags' TEXT");
+                    db.execSQL("ALTER TABLE latest ADD 'wallUrl' TEXT");
+                    db.execSQL("ALTER TABLE latest ADD 'app1Url' TEXT");
+                    db.execSQL("ALTER TABLE latest ADD 'app2Name' TEXT");
+                    db.execSQL("ALTER TABLE latest ADD 'app2Url' TEXT");
+                    db.execSQL("ALTER TABLE latest ADD 'app3Name' TEXT");
+                    db.execSQL("ALTER TABLE latest ADD 'app3Url' TEXT");
+                    db.execSQL("ALTER TABLE latest ADD 'app4Name' TEXT");
+                    db.execSQL("ALTER TABLE latest ADD 'app4Url' TEXT");
+                    db.execSQL("ALTER TABLE latest ADD 'app5Name' TEXT");
+                    db.execSQL("ALTER TABLE latest ADD 'app5Url' TEXT");
 
                     db.execSQL("ALTER TABLE fav ADD 'total_rate' TEXT");
                     db.execSQL("ALTER TABLE fav ADD 'avg_rate' TEXT");
                     db.execSQL("ALTER TABLE fav ADD 'total_download' TEXT");
                     db.execSQL("ALTER TABLE fav ADD 'tags' TEXT");
+                    db.execSQL("ALTER TABLE fav ADD 'wallUrl' TEXT");
+                    db.execSQL("ALTER TABLE fav ADD 'app1Url' TEXT");
+                    db.execSQL("ALTER TABLE fav ADD 'app2Name' TEXT");
+                    db.execSQL("ALTER TABLE fav ADD 'app2Url' TEXT");
+                    db.execSQL("ALTER TABLE fav ADD 'app3Name' TEXT");
+                    db.execSQL("ALTER TABLE fav ADD 'app3Url' TEXT");
+                    db.execSQL("ALTER TABLE fav ADD 'app4Name' TEXT");
+                    db.execSQL("ALTER TABLE fav ADD 'app4Url' TEXT");
+                    db.execSQL("ALTER TABLE fav ADD 'app5Name' TEXT");
+                    db.execSQL("ALTER TABLE fav ADD 'app5Url' TEXT");
 
                     db.execSQL("ALTER TABLE catlist ADD 'total_rate' TEXT");
                     db.execSQL("ALTER TABLE catlist ADD 'avg_rate' TEXT");

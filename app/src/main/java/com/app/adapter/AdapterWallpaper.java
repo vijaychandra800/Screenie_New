@@ -11,22 +11,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.applovin.mediation.MaxAd;
-import com.applovin.mediation.MaxError;
-import com.applovin.mediation.nativeAds.MaxNativeAdListener;
-import com.applovin.mediation.nativeAds.MaxNativeAdLoader;
-import com.applovin.mediation.nativeAds.MaxNativeAdView;
+
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.ads.consent.ConsentInformation;
 import com.google.ads.consent.ConsentStatus;
 import com.google.ads.mediation.admob.AdMobAdapter;
 import com.google.ads.mediation.facebook.FacebookAdapter;
 import com.google.ads.mediation.facebook.FacebookExtras;
+import com.makeramen.roundedimageview.RoundedImageView;
 import com.google.android.gms.ads.AdLoader;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.nativead.MediaView;
@@ -34,11 +33,6 @@ import com.google.android.gms.ads.nativead.NativeAd;
 import com.google.android.gms.ads.nativead.NativeAdView;
 import com.like.LikeButton;
 import com.like.OnLikeListener;
-import com.startapp.sdk.ads.nativead.NativeAdDetails;
-import com.startapp.sdk.ads.nativead.NativeAdPreferences;
-import com.startapp.sdk.ads.nativead.StartAppNativeAd;
-import com.startapp.sdk.adsbase.Ad;
-import com.startapp.sdk.adsbase.adlisteners.AdEventListener;
 import com.app.asyncTask.LoadFav;
 import com.app.screenie.R;
 import com.app.interfaces.RecyclerViewClickListener;
@@ -49,6 +43,7 @@ import com.app.utils.Methods;
 import com.app.utils.SharedPref;
 
 import org.jetbrains.annotations.NotNull;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -92,7 +87,7 @@ public class AdapterWallpaper extends RecyclerView.Adapter {
         RelativeLayout rootlayout;
         LikeButton likeButton;
         TextView textView_cat;
-        View vieww;
+        //View vieww;
         SimpleDraweeView my_image_view;
 
         private MyViewHolder(View view) {
@@ -101,12 +96,13 @@ public class AdapterWallpaper extends RecyclerView.Adapter {
             my_image_view = view.findViewById(R.id.my_image_view);
             likeButton = view.findViewById(R.id.button_wall_fav);
             textView_cat = view.findViewById(R.id.tv_wall_cat);
-            vieww = view.findViewById(R.id.view_wall);
+            //vieww = view.findViewById(R.id.view_wall);
         }
     }
 
     private static class ProgressViewHolder extends RecyclerView.ViewHolder {
-        private static CircularProgressBar progressBar;
+        //private static CircularProgressBar progressBar;
+        private static ProgressBar progressBar;
 
         private ProgressViewHolder(View v) {
             super(v);
@@ -145,15 +141,15 @@ public class AdapterWallpaper extends RecyclerView.Adapter {
             ((MyViewHolder) holder).likeButton.setLiked(arrayList.get(position).getIsFav());
             ((MyViewHolder) holder).textView_cat.setText(arrayList.get(position).getCName());
 
-            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(columnWidth, (int) (columnHeight * 0.4));
-            params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-            ((MyViewHolder) holder).vieww.setLayoutParams(params);
+            //RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(columnWidth, (int) (columnHeight * 0.4));
+            //params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+            //((MyViewHolder) holder).vieww.setLayoutParams(params);
 
             ((MyViewHolder) holder).my_image_view.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            ((MyViewHolder) holder).my_image_view.setLayoutParams(new RelativeLayout.LayoutParams(columnWidth, columnHeight));
+            //((MyViewHolder) holder).my_image_view.setLayoutParams(new RelativeLayout.LayoutParams(columnWidth, columnHeight));
 
-            ((MyViewHolder) holder).my_image_view.setImageURI(Uri.parse(methods.getImageThumbSize(arrayList.get(position).getImageThumb(), type)));
-
+            Picasso.get().load(Uri.parse(methods.getImageThumbSize(arrayList.get(position).getImageThumb(), type)))
+                    .into(((MyViewHolder) holder).my_image_view);
             if (sharedPref.isLogged()) {
                 ((MyViewHolder) holder).likeButton.setOnLikeListener(new OnLikeListener() {
                     @Override
@@ -463,18 +459,6 @@ public class AdapterWallpaper extends RecyclerView.Adapter {
         // native ad view with this native ad. The SDK will populate the adView's MediaView
         // with the media content from this native ad.
         adView.setNativeAd(nativeAd);
-    }
-
-    private void populateStartAppNativeAdView(NativeAdDetails nativeAdDetails, RelativeLayout nativeAdView) {
-        ImageView icon = nativeAdView.findViewById(R.id.icon);
-        TextView title = nativeAdView.findViewById(R.id.title);
-        TextView description = nativeAdView.findViewById(R.id.description);
-        Button button = nativeAdView.findViewById(R.id.button);
-
-        icon.setImageBitmap(nativeAdDetails.getImageBitmap());
-        title.setText(nativeAdDetails.getTitle());
-        description.setText(nativeAdDetails.getDescription());
-        button.setText(nativeAdDetails.isApp() ? "Install" : "Open");
     }
 
     public void destroyNativeAds() {

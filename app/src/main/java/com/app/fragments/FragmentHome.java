@@ -4,6 +4,11 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
+import androidx.annotation.NonNull;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.SearchView;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -14,13 +19,13 @@ import android.view.ViewGroup;
 import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.amlcurran.showcaseview.ShowcaseView;
 import com.github.amlcurran.showcaseview.targets.ViewTarget;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.like.LikeButton;
 import com.like.OnLikeListener;
 import com.makeramen.roundedimageview.RoundedImageView;
@@ -73,7 +78,8 @@ public class FragmentHome extends Fragment {
     private LinearLayout ll_recent, ll_latest, ll_popular, ll_cat;
     private Button button_recent, button_latest, button_popular, button_cat;
     private LinearLayout linearLayout;
-    private CircularProgressBar progressBar;
+    //private CircularProgressBar progressBar;
+    private ProgressBar progressBar;
     private SharedPref sharedPref;
 
     private EnchantedViewPager viewPager;
@@ -260,7 +266,7 @@ public class FragmentHome extends Fragment {
 
         LinearLayout ll_adView1 = rootView.findViewById(R.id.ll_adView1);
 
-        methods.showBannerAd(ll_adView1);
+        //methods.showBannerAd(ll_adView1);
 
         rv_recent = rootView.findViewById(R.id.rv_home_recent);
         rv_recent.setHasFixedSize(true);

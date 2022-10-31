@@ -7,6 +7,11 @@ import android.os.StrictMode;
 
 import com.facebook.FacebookSdk;
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.ads.AudienceNetworkAds;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.onesignal.OneSignal;
 import com.app.utils.Constant;
@@ -57,6 +62,18 @@ public class MyApplication extends Application {
         Fresco.initialize(this);
 
         FacebookSdk.sdkInitialize(getApplicationContext());
+ 
+        //Not there in current code
+        MobileAds.initialize(getApplicationContext(), new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(@NonNull @NotNull InitializationStatus initializationStatus) {
+                try {
+                    AudienceNetworkAds.initialize(getApplicationContext());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
         sharedPref = new SharedPref(this);
 

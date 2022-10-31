@@ -44,7 +44,16 @@
         app:cpb_min_sweep_angle="10"
         app:cpb_rotation_speed="1.0"
         app:cpb_stroke_width="4dp"
-        app:cpb_sweep_speed="1.0" />
+        app:cpb_sweep_speed="1.0"
+        />
+    <!--
+        <ProgressBar
+            android:id="@+id/pb_wall"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:indeterminate="true"
+            />-->
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"

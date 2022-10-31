@@ -7,7 +7,7 @@
     android:gravity="center"
     android:padding="5dp">
 
-    <fr.castorflex.android.circularprogressbar.CircularProgressBar
+    <!--<fr.castorflex.android.circularprogressbar.CircularProgressBar
         android:id="@+id/progressBar"
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -18,6 +18,14 @@
         app:cpb_rotation_speed="1.0"
         app:cpb_stroke_width="4dp"
         app:cpb_sweep_speed="1.0"
-        app:cpb_colors="@array/pocket_bar_colors" />
+        app:cpb_colors="@array/pocket_bar_colors"
+        />-->
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:indeterminate="true"
+        />
 
 </LinearLayout>

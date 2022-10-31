@@ -1,5 +1,6 @@
 package com.app.screenie;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -7,12 +8,15 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.Animatable;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -73,6 +77,7 @@ import java.util.Arrays;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -101,8 +106,9 @@ public class WallPaperDetailsActivity extends AppCompatActivity {
     LinearLayoutManager llm;
     int position;
     ImageView iv_option_toggle, iv_option_toggle2;
-    LinearLayout ll_download, ll_share, ll_rate, ll_setas;
+    LinearLayout ll_download, ll_share, ll_rate, ll_setas,download_hd;
     LikeButton button_fav, fav_report;
+    Button app1,app2,app3,app4,app5;
     TextView tv_views, tv_downloads, tv_cat, tv_res, tv_size;
 
     Dialog dialog_rate;
@@ -116,6 +122,9 @@ public class WallPaperDetailsActivity extends AppCompatActivity {
     int height = 0, pos_type = 0, page = 2;
     String wallType = "", color_ids = "", cid = "1";
     Boolean isOver = false;
+
+    String curr_wall_url;
+
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -146,10 +155,51 @@ public class WallPaperDetailsActivity extends AppCompatActivity {
 
         dbHelper = new DBHelper(this);
         sharedPref = new SharedPref(this);
+
+
+
+        // methods = new Methods(this, new InterAdListener() {
+        //     @Override
+        //     public void onClick(int position, String type) {
+        //         Log.e("Type", type);
+
+        //         curr_wall_url = Constant.arrayList.get(viewpager.getCurrentItem()).getWallUrl();
+
+        //         switch (type) {
+        //            /* case "download":
+        //                 new SaveTask("save").execute(Constant.arrayList.get(viewpager.getCurrentItem()).getImage());
+        //                 break;*/
+        //             case "share":
+        //                 new SaveTask("share").execute(Constant.arrayList.get(viewpager.getCurrentItem()).getImage());
+        //                 break;
+        //             case "set":
+
+        //                 if(curr_wall_url.contains("screenie.atozhacks")){
+        //                 // new SaveTask("set").execute(Constant.arrayList.get(viewpager.getCurrentItem()).getImage());
+        //                 new SaveTask("set").execute(Constant.arrayList.get(viewpager.getCurrentItem()).getWallUrl());
+        //                 break;
+        //             }
+        //                 else{
+        //                     ll_setas.setOnClickListener(new View.OnClickListener() {
+        //                         @Override
+        //                         public void onClick(View view) {
+        //                             Toast.makeText(WallPaperDetailsActivity.this, "Wallpaper is from Paid App, Please Install It", Toast.LENGTH_SHORT).show();
+        //                             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(curr_wall_url));
+        //                             startActivity(intent);
+
+        //                         }
+        //                     });
+        //                 }
+
+        //         }
+        //     }
+        // });
+
         methods = new Methods(this, new InterAdListener() {
             @Override
             public void onClick(int position, String type) {
-                methods.saveImage(Constant.arrayList.get(viewpager.getCurrentItem()).getImage(), type, coordinatorLayout, "wallpaper");
+                curr_wall_url = Constant.arrayList.get(viewpager.getCurrentItem()).getWallUrl();
+                //methods.saveImage(Constant.arrayList.get(viewpager.getCurrentItem()).getWallUrl(), type, coordinatorLayout, "wallpaper");
             }
         });
         methods.forceRTLIfSupported(getWindow());
@@ -182,6 +232,14 @@ public class WallPaperDetailsActivity extends AppCompatActivity {
         tv_views = findViewById(R.id.tv_wall_details_views);
         tv_downloads = findViewById(R.id.tv_wall_details_downloads);
         tv_cat = findViewById(R.id.tv_details_cat);
+
+        download_hd = findViewById(R.id.download_hd);
+        app1 = findViewById(R.id.app1);
+        app2 = findViewById(R.id.app2);
+        app3 = findViewById(R.id.app3);
+        app4 = findViewById(R.id.app4);
+        app5 = findViewById(R.id.app5);
+
         tv_res = findViewById(R.id.tv_details_resolution);
         tv_size = findViewById(R.id.tv_details_size);
         ratingBar = findViewById(R.id.rating_wall_details);
@@ -222,7 +280,9 @@ public class WallPaperDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (checkPer()) {
-                    methods.showInter(0, getString(R.string.share));
+                    methods.showInter(0, "share");
+                    //Not there in new code(1line)
+                    methods.saveImage(Constant.arrayList.get(viewpager.getCurrentItem()).getImage(), "Share", coordinatorLayout, "wallpaper");
                 }
             }
         });
@@ -238,12 +298,32 @@ public class WallPaperDetailsActivity extends AppCompatActivity {
             }
         });
 
+        download_hd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showCustomDialog();
+            }
+        });
+
         ll_setas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                methods.showInter(0, getString(R.string.set_wallpaper));
+                methods.showInter(0, "set");
+                if(curr_wall_url.contains(".jpg")){
+                    //new SaveTask("save").execute(Constant.arrayList.get(viewpager.getCurrentItem()).getWallUrl());
+
+                    methods.saveImage(Constant.arrayList.get(viewpager.getCurrentItem()).getWallUrl(), "Set As", coordinatorLayout, "wallpaper");
+                }
+
+                else{
+                    Toast.makeText(WallPaperDetailsActivity.this, "Wallpaper is from Paid App, Please Install It", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(curr_wall_url));
+                    startActivity(intent);
+                }
+
             }
         });
+
 
         if (sharedPref.isLogged()) {
             button_fav.setOnLikeListener(new OnLikeListener() {
@@ -288,6 +368,69 @@ public class WallPaperDetailsActivity extends AppCompatActivity {
                 tv_cat.setText(Constant.arrayList.get(position).getCName());
                 tv_res.setText(Constant.arrayList.get(position).getResolution());
                 tv_size.setText(Constant.arrayList.get(position).getSize());
+
+                final int finalPosition = position;
+                app1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String url = Constant.arrayList.get(finalPosition).getApp1Url();
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                        startActivity(intent);
+                    }
+                });
+
+                if (!(Constant.arrayList.get(finalPosition).getApp2Name().equals(""))) {
+                    app2.setText(Constant.arrayList.get(position).getApp2Name());
+                    app2.setVisibility(View.VISIBLE);
+                    app2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            String url = Constant.arrayList.get(finalPosition).getApp2Url();
+                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                            startActivity(intent);
+                        }
+                    });
+                }
+
+                if (!(Constant.arrayList.get(finalPosition).getApp3Name().equals(""))) {
+                    app3.setText(Constant.arrayList.get(position).getApp3Name());
+                    app3.setVisibility(View.VISIBLE);
+                    app3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            String url = Constant.arrayList.get(finalPosition).getApp3Url();
+                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                            startActivity(intent);
+                        }
+                    });
+                }
+
+                if (!(Constant.arrayList.get(finalPosition).getApp4Name().equals(""))) {
+                    app4.setText(Constant.arrayList.get(position).getApp4Name());
+                    app4.setVisibility(View.VISIBLE);
+                    app4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            String url = Constant.arrayList.get(finalPosition).getApp4Url();
+                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                            startActivity(intent);
+                        }
+                    });
+                }
+
+                if (!(Constant.arrayList.get(finalPosition).getApp5Name().equals(""))) {
+                    app5.setText(Constant.arrayList.get(position).getApp5Name());
+                    app5.setVisibility(View.VISIBLE);
+                    app5.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            String url = Constant.arrayList.get(finalPosition).getApp5Url();
+                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                            startActivity(intent);
+                        }
+                    });
+                }
+
                 loadViewed(position);
 
                 arrayListTags.clear();
@@ -345,6 +488,66 @@ public class WallPaperDetailsActivity extends AppCompatActivity {
                 iv_option_toggle2.startAnimation(anim_top2);
             }
         }, 1000);
+    }
+
+    private void showCustomDialog() {
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // before
+        dialog.setContentView(R.layout.dialog_info);
+        dialog.setCancelable(true);
+
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+
+
+        ((AppCompatButton) dialog.findViewById(R.id.btn_hd)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Toast.makeText(WallPaperDetailsActivity.this, "HD", Toast.LENGTH_SHORT).show();
+                // Log.e("Link HD", Constant.arrayList.get(viewpager.getCurrentItem()).getWallUrl());
+                if (checkPer()) {
+                    methods.showInter(0, "download");
+                }
+
+                // String curr_wall_url = Constant.arrayList.get(viewpager.getCurrentItem()).getWallUrl();
+                if(curr_wall_url.contains(".jpg")){
+                    //new SaveTask("save").execute(Constant.arrayList.get(viewpager.getCurrentItem()).getWallUrl());
+
+                    methods.saveImage(Constant.arrayList.get(viewpager.getCurrentItem()).getWallUrl(), "Download", coordinatorLayout, "wallpaper");
+
+                    dialog.dismiss();
+                }
+
+                else{
+                    Toast.makeText(WallPaperDetailsActivity.this, "Wallpaper is from Paid App, Please Install It", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(curr_wall_url));
+                    startActivity(intent);
+                }
+
+            }
+        });
+
+        ((AppCompatButton) dialog.findViewById(R.id.btn_normal)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Toast.makeText(WallPaperDetailsActivity.this, "Normal", Toast.LENGTH_SHORT).show();
+                //Log.e("Link Normal", Constant.arrayList.get(viewpager.getCurrentItem()).getImage());
+                if (checkPer()) {
+                    methods.showInter(0, "download");
+                }
+
+                //new SaveTask("save").execute(Constant.arrayList.get(viewpager.getCurrentItem()).getImage());
+
+                methods.saveImage(Constant.arrayList.get(viewpager.getCurrentItem()).getImage(), "Download", coordinatorLayout, "wallpaper");
+
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+        dialog.getWindow().setAttributes(lp);
     }
 
     @Override
@@ -502,6 +705,69 @@ public class WallPaperDetailsActivity extends AppCompatActivity {
                 Constant.arrayList.get(p).setTotalViews("" + (tot + 1));
 //            tv_views.setText(Constant.arrayList.get(position).getTotalViews());
             }
+
+            app1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String url = Constant.arrayList.get(p).getApp1Url();
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    startActivity(intent);
+                }
+            });
+
+            if (!(Constant.arrayList.get(p).getApp2Name().equals(""))) {
+                app2.setText(Constant.arrayList.get(position).getApp2Name());
+                app2.setVisibility(View.VISIBLE);
+                app2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String url = Constant.arrayList.get(p).getApp2Url();
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                        startActivity(intent);
+                    }
+                });
+            }
+
+            if (!(Constant.arrayList.get(p).getApp3Name().equals(""))) {
+                app3.setText(Constant.arrayList.get(position).getApp3Name());
+                app3.setVisibility(View.VISIBLE);
+                app3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String url = Constant.arrayList.get(p).getApp3Url();
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                        startActivity(intent);
+                    }
+                });
+            }
+
+            if (!(Constant.arrayList.get(p).getApp4Name().equals(""))) {
+                app4.setText(Constant.arrayList.get(position).getApp4Name());
+                app4.setVisibility(View.VISIBLE);
+                app4.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String url = Constant.arrayList.get(p).getApp4Url();
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                        startActivity(intent);
+                    }
+                });
+            }
+
+            if (!(Constant.arrayList.get(p).getApp5Name().equals(""))) {
+                app5.setText(Constant.arrayList.get(position).getApp5Name());
+                app5.setVisibility(View.VISIBLE);
+                app5.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String url = Constant.arrayList.get(p).getApp5Url();
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                        startActivity(intent);
+                    }
+                });
+            }
+
+
 
             if (pos == viewpager.getCurrentItem()) {
                 tv_res.setText(res);

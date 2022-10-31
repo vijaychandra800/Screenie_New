@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -51,7 +52,8 @@ public class FragmentRecentWall extends Fragment {
     private RecyclerView recyclerView, rv_colors;
     private AdapterWallpaper adapter;
     private ArrayList<ItemWallpaper> arrayList, arrayListTemp;
-    private CircularProgressBar progressBar;
+    //private CircularProgressBar progressBar;
+    private ProgressBar progressBar;
     private TextView textView_empty;
     private GridLayoutManager grid;
     private int page = 1;
@@ -63,6 +65,7 @@ public class FragmentRecentWall extends Fragment {
     private String color_ids = "";
     private SharedPref sharedPref;
     private RelativeLayout rl_colors;
+    private int nativeAdPos = 12;
     Boolean isWallTypeChanged = true;
 
     @Override
@@ -75,7 +78,7 @@ public class FragmentRecentWall extends Fragment {
         button_colors_go = rootView.findViewById(R.id.button_colors_go);
         rv_colors = rootView.findViewById(R.id.rv_wall_colors);
 
-        grid = new GridLayoutManager(getActivity(), 3);
+        grid = new GridLayoutManager(getActivity(), 2);
 
         InterAdListener interAdListener = new InterAdListener() {
             @Override
@@ -110,6 +113,9 @@ public class FragmentRecentWall extends Fragment {
         grid.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
+                //Log.e("SPAN", "is " +(adapter.getItemViewType(position) >= 1000 || adapter.isHeader(position)) ? grid.getSpanCount() : 1);
+                int value = (adapter.getItemViewType(position) >= 1000 || adapter.isHeader(position)) ? grid.getSpanCount() : 1;
+                //Log.e("value is ", "is " + value);
                 return (adapter.getItemViewType(position) >= 1000 || adapter.isHeader(position)) ? grid.getSpanCount() : 1;
             }
         });
@@ -167,11 +173,11 @@ public class FragmentRecentWall extends Fragment {
 //        isScroll = false;
 //        isOver = false;
         wallType = sharedPref.getWallType();
-        if (wallType.equals(getString(R.string.landscape))) {
+       /* if (wallType.equals(getString(R.string.landscape))) {
             grid.setSpanCount(2);
         } else {
             grid.setSpanCount(3);
-        }
+        }*/
 
         getLatestData();
 

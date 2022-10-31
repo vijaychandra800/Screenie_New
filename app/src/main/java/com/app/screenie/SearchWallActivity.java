@@ -71,12 +71,12 @@ public class SearchWallActivity extends AppCompatActivity {
         sharedPref = new SharedPref(this);
         wallType = sharedPref.getWallType();
 
-        grid = new GridLayoutManager(this, 3);
-        if (wallType.equals(getString(R.string.landscape))) {
-            grid.setSpanCount(2);
-        } else {
-            grid.setSpanCount(3);
-        }
+        grid = new GridLayoutManager(this, 2);
+        // if (wallType.equals(getString(R.string.landscape))) {
+        //     grid.setSpanCount(2);
+        // } else {
+        //     grid.setSpanCount(3);
+        // }
 
         grid.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
@@ -109,7 +109,7 @@ public class SearchWallActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         LinearLayout ll_ad = findViewById(R.id.ll_ad_search);
-        methods.showBannerAd(ll_ad);
+        //methods.showBannerAd(ll_ad);
 
         arrayList = new ArrayList<>();
         arrayListTemp = new ArrayList<>();

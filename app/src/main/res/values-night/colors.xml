@@ -2,16 +2,20 @@
 <resources>
     <color name="colorPrimary">#000000</color>
     <color name="colorPrimaryDark">#000000</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#CA2727</color>
 
     <color name="primary">#3F51B5</color>
 
-    <color name="bg">#0b0b0b</color>
+    <color name="bg">#000000</color>
     <color name="bg_white_dark">#0b0b0b</color>
 
     <color name="bg_option">#0b0b0b</color>
-    <color name="bg_nav_selected">#101010</color>
+    <color name="bg_nav_selected">#CA2727</color>
     <color name="bg_items">#2F2F2F</color>
+
+    <color name="tags">#1179FA</color>
+    <color name="bg_nav">#000000</color>
+
 
     <color name="btn_go">#2F2F2F</color>
     <color name="line_op_vertical">#787878</color>
@@ -43,9 +47,9 @@
     <color name="white80">#80ffffff</color>
     <color name="rating">#f99120</color>
     <color name="red">#ff0000</color>
-    <color name="bg_nav_bottom">#053b5b</color>
-    <color name="line_verticle_home">#3957e7</color>
-    <color name="text_view_all" >#3957e7</color>
+    <color name="bg_nav_bottom">#000000</color>
+    <color name="line_verticle_home">#CA2727</color>
+    <color name="text_view_all" >#CA2727</color>
 
     <color name="text">#424242</color>
     <color name="text_light">#626262</color>

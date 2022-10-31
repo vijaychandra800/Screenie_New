@@ -81,11 +81,11 @@ public class WallpaperByCatActivity extends AppCompatActivity {
         wallType = sharedPref.getWallType();
 
         grid = new GridLayoutManager(this, 3);
-        if (wallType.equals(getString(R.string.landscape))) {
-            grid.setSpanCount(2);
-        } else {
-            grid.setSpanCount(3);
-        }
+        // if (wallType.equals(getString(R.string.landscape))) {
+        //     grid.setSpanCount(2);
+        // } else {
+        //     grid.setSpanCount(3);
+        // }
 
         interAdListener = new InterAdListener() {
             @Override
@@ -114,7 +114,7 @@ public class WallpaperByCatActivity extends AppCompatActivity {
 
         LinearLayout ll_ad = findViewById(R.id.ll_ad_search);
         dbHelper.getAbout();
-        methods.showBannerAd(ll_ad);
+        //methods.showBannerAd(ll_ad);
 
         cid = getIntent().getStringExtra("cid");
         cname = getIntent().getStringExtra("cname");

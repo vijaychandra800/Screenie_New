@@ -39,6 +39,28 @@
             android:title="@string/favourite" />
 
     </group>
+    <group>
+    <item
+        android:id="@+id/nav_youtube"
+        android:icon="@drawable/youtube"
+        android:title="Setup Tutorial"/>
+    <item
+        android:id="@+id/nav_mail"
+        android:icon="@mipmap/email"
+        android:title="Get Featured"/>
+
+     <item
+           android:id="@+id/nav_insta"
+           android:icon="@drawable/instagram"
+           android:title="Follow On Instagram"/>
+
+    <item
+        android:id="@+id/nav_telegram"
+        android:icon="@drawable/telegram"
+        android:title="Join Telegram Group"/>
+
+
+</group>
 
     <item
         android:id="@+id/nav_profile"

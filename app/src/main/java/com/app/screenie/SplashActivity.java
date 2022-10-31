@@ -57,7 +57,7 @@ public class SplashActivity extends AppCompatActivity {
                     public void run() {
                         openMainActivity();
                     }
-                }, 2000);
+                }, 1000);
             } else {
                 if (sharedPref.getLoginType().equals(Constant.LOGIN_TYPE_FB)) {
                     if (AccessToken.getCurrentAccessToken() != null) {

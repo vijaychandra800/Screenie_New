@@ -1,6 +1,14 @@
 apply plugin: 'com.android.library'
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('C:\\Users\\VijayChandra\\Documents\\screenie.jks')
+            keyAlias 'screenie'
+            storePassword 'Vijay123'
+            keyPassword 'Vijay123'
+        }
+    }
     compileSdkVersion 28
 
     defaultConfig {

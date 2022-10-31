@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -57,6 +58,7 @@ public class FragmentRecent extends Fragment {
     private String color_ids = "";
     private SharedPref sharedPref;
     private RelativeLayout rl_colors;
+    private int nativeAdPos = 12;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -65,12 +67,12 @@ public class FragmentRecent extends Fragment {
         sharedPref = new SharedPref(getActivity());
         wallType = sharedPref.getWallType();
 
-        grid = new GridLayoutManager(getActivity(), 3);
-        if (wallType.equals(getString(R.string.landscape))) {
-            grid.setSpanCount(2);
-        } else {
-            grid.setSpanCount(3);
-        }
+        grid = new GridLayoutManager(getActivity(), 2);
+        // if (wallType.equals(getString(R.string.landscape))) {
+        //     grid.setSpanCount(2);
+        // } else {
+        //     grid.setSpanCount(3);
+        // }
 
         InterAdListener interAdListener = new InterAdListener() {
             @Override

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context="com.app.screenie.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -11,12 +12,13 @@
         android:layout_height="wrap_content"
         android:elevation="0dp"
         android:theme="@style/AppTheme.AppBarOverlay"
-        tools:targetApi="lollipop" >
+        android:fitsSystemWindows="true">
 
         <com.app.utils.StatusBarView
             android:id="@+id/statusBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
             android:background="@drawable/bg_grt_toolbar" />
 
         <androidx.appcompat.widget.Toolbar
@@ -26,8 +28,8 @@
             android:background="@drawable/bg_grt_toolbar"
             app:popupTheme="@style/AppTheme.PopupOverlay"
             android:elevation="0dp"
-            tools:targetApi="lollipop"
-            app:title="@string/home"  />
+            tools:targetApi="Q"
+            app:title="@string/home" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

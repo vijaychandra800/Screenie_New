@@ -14,7 +14,7 @@
         android:src="@drawable/splash"
         android:scaleType="centerCrop"/>
 
-    <fr.castorflex.android.circularprogressbar.CircularProgressBar
+    <!--<fr.castorflex.android.circularprogressbar.CircularProgressBar
         android:id="@+id/pb_latest"
         app:cpb_color="#FFee44"
         app:cpb_colors="@array/pocket_bar_colors"
@@ -23,6 +23,16 @@
         app:cpb_rotation_speed="1.0"
         app:cpb_stroke_width="4dp"
         app:cpb_sweep_speed="1.0"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:indeterminate="true" />-->
+
+    <ProgressBar
+        android:id="@+id/pb_latest"
+
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_centerInParent="true"

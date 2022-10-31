@@ -60,6 +60,7 @@ public class FragmentWallByCat extends Fragment {
     private String wallType;
     private FloatingActionButton fab;
     private Button button_colors_go;
+    private int nativeAdPos = 12;
 
     private AdapterColors adapterColors;
     private String color_ids = "";
@@ -71,12 +72,12 @@ public class FragmentWallByCat extends Fragment {
         SharedPref sharedPref = new SharedPref(getActivity());
         wallType = sharedPref.getWallType();
 
-        grid = new GridLayoutManager(getActivity(), 3);
-        if (wallType.equals(getString(R.string.landscape))) {
-            grid.setSpanCount(2);
-        } else {
-            grid.setSpanCount(3);
-        }
+        grid = new GridLayoutManager(getActivity(), 2);
+        // if (wallType.equals(getString(R.string.landscape))) {
+        //     grid.setSpanCount(2);
+        // } else {
+        //     grid.setSpanCount(3);
+        // }
 
         InterAdListener interAdListener = new InterAdListener() {
             @Override
