@@ -80,7 +80,7 @@ public class WallpaperByCatActivity extends AppCompatActivity {
         sharedPref = new SharedPref(this);
         wallType = sharedPref.getWallType();
 
-        grid = new GridLayoutManager(this, 3);
+        grid = new GridLayoutManager(this, 2);
         // if (wallType.equals(getString(R.string.landscape))) {
         //     grid.setSpanCount(2);
         // } else {

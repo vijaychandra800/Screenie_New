@@ -89,7 +89,7 @@ public class AdapterWallpaperSearch extends RecyclerView.Adapter {
         LikeButton likeButton;
         TextView textView_cat;
         //View vieww;
-        SimpleDraweeView my_image_view;
+        RoundedImageView my_image_view;
 
         private MyViewHolder(View view) {
             super(view);

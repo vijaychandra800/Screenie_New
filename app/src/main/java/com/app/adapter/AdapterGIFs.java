@@ -39,6 +39,7 @@ import com.app.items.ItemGIF;
 import com.app.utils.Constant;
 import com.app.utils.Methods;
 import com.app.utils.SharedPref;
+import com.makeramen.roundedimageview.RoundedImageView;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -82,7 +83,7 @@ public class AdapterGIFs extends RecyclerView.Adapter {
 
         RelativeLayout rootlayout;
         LikeButton likeButton;
-        SimpleDraweeView my_image_view;
+        RoundedImageView my_image_view;
         TextView textView_cat;
         View vieww;
 

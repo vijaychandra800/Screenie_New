@@ -7,7 +7,7 @@ apply plugin: 'com.google.firebase.firebase-perf'
 android {
     signingConfigs {
         release {
-            storeFile file('C:\\Users\\VijayChandra\\Documents\\screenie.jks')
+            storeFile file('C:\\Users\\vmurari\\Downloads\\VJ\\screenie.jks')
             keyAlias 'screenie'
             storePassword 'Vijay123'
             keyPassword 'Vijay123'
@@ -19,7 +19,7 @@ android {
         applicationId "com.app.screenie"
         minSdkVersion 19
         targetSdkVersion 31
-        versionCode 31
+        versionCode 32
         versionName "8.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 

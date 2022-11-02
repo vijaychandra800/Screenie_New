@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "166805854730-oljfq0ava2b80i4rk0evc9gpjf21l137.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.screenie",
+            "certificate_hash": "6df7def8b7d4544fa28a3fca675868ffe3f2bb83"
+          }
+        },
+        {
           "client_id": "166805854730-t1qm33j7k508rprmc6crfh897tun9o7b.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

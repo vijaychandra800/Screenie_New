@@ -207,6 +207,7 @@ public class AdapterWallpaper extends RecyclerView.Adapter {
                             break;
 
                     }
+
                 }
             }
         } else {
